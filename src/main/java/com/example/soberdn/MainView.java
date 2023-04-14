@@ -41,7 +41,7 @@ public class MainView extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Root2.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/soberdn/Root2.fxml"));
 
         final Parent root = loader.load();
         rootController = loader.getController();
@@ -70,7 +70,7 @@ public class MainView extends Application {
     private void addModule(String name) {
         try {
             logger.info("addModule: Loading Module: \"" + name + "\"!");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/" + name + ".fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/soberdn/" + name + ".fxml"));
             Node content = loader.load();
             Controller controller = loader.getController();
             Module module = new Module(name, controller, content);
