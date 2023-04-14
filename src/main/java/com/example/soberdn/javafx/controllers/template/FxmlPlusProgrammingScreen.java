@@ -26,7 +26,7 @@ public class FxmlPlusProgrammingScreen extends VBox implements Initializable {
   public FxmlPlusProgrammingScreen(final ScreenController screenController) {
     this.screenController = screenController;
 
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/template/SecondScreen.fxml"));
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/soberdn/template/SecondScreen.fxml"));
     loader.setRoot(this);
     loader.setController(this);
 

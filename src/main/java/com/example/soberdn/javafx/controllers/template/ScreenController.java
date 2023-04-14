@@ -36,7 +36,7 @@ public class ScreenController {
 
   private Node getThirdScreen() {
     if (thirdScreenContent == null) {
-      FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/template/ThirdScreen.fxml"));
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/soberdn/template/ThirdScreen.fxml"));
       try {
         thirdScreenContent = loader.load();
       } catch (IOException e) {
