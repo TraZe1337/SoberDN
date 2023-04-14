@@ -11,6 +11,7 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    maven { url "https://jitpack.io" }
 }
 
 ext {
@@ -36,11 +37,14 @@ javafx {
 
 dependencies {
 
+    //implementation 'io.github.yst1011:QRCode:1.0.6'
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
     implementation ("org.slf4j:slf4j-api:2.0.2") {
         because "we need the SimpleLoggingFacade with module information"
     }
+    implementation 'com.google.zxing:javase:3.5.1'
+    implementation 'com.google.zxing:core:3.5.1'
 }
 
 test {
