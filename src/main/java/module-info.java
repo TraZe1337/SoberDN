@@ -5,6 +5,9 @@ module com.example.soberdn {
     requires com.google.zxing;
     requires com.google.zxing.javase;
 
+    exports com.example.soberdn.javafx.controllers to javafx.fxml;
+    opens com.example.soberdn.javafx.controllers.template to javafx.fxml;
+    opens com.example.soberdn.javafx.controllers to javafx.fxml;
     opens com.example.soberdn to javafx.fxml;
     exports com.example.soberdn;
 }
