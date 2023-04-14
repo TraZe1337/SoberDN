@@ -38,6 +38,9 @@ dependencies {
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    implementation ("org.slf4j:slf4j-api:2.0.2") {
+        because "we need the SimpleLoggingFacade with module information"
+    }
 }
 
 test {
