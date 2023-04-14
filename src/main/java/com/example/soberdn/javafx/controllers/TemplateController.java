@@ -1,9 +1,9 @@
-package de.hhn.it.devtools.javafx.controllers;
+package com.example.soberdn.javafx.controllers;
 
-import de.hhn.it.devtools.javafx.controllers.template.PurProgrammingScreen;
-import de.hhn.it.devtools.javafx.controllers.template.ScreenController;
-import de.hhn.it.devtools.javafx.controllers.template.SingletonAttributeStore;
-import de.hhn.it.devtools.javafx.controllers.template.UnknownTransitionException;
+import com.example.soberdn.javafx.controllers.template.PurProgrammingScreen;
+import com.example.soberdn.javafx.controllers.template.ScreenController;
+import com.example.soberdn.javafx.controllers.template.SingletonAttributeStore;
+import com.example.soberdn.javafx.controllers.template.UnknownTransitionException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;

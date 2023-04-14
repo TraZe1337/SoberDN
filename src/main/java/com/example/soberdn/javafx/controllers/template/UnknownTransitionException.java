@@ -1,4 +1,4 @@
-package de.hhn.it.devtools.javafx.controllers.template;
+package com.example.soberdn.javafx.controllers.template;
 
 public class UnknownTransitionException extends RuntimeException {
   private static final org.slf4j.Logger logger =

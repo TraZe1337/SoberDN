@@ -1,8 +1,10 @@
-package de.hhn.it.devtools.javafx.controllers.template;
+package com.example.soberdn.javafx.controllers.template;
 
-import de.hhn.it.devtools.javafx.controllers.TemplateController;
+import com.example.soberdn.javafx.controllers.Controller;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import com.example.soberdn.javafx.controllers.TemplateController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;

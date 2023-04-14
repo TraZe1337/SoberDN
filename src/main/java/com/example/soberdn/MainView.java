@@ -1,5 +1,8 @@
-package com.example.soberdn.javafx;
+package com.example.soberdn;
 
+import com.example.soberdn.javafx.controllers.Controller;
+import com.example.soberdn.javafx.controllers.RootController;
+import com.example.soberdn.javafx.modules.Module;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -11,20 +14,25 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Main extends Application {
-    private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(Main.class);
+public class MainView extends Application {
 
+    private static final org.slf4j.Logger logger =
+            org.slf4j.LoggerFactory.getLogger(MainView.class);
     private final int WIDTH = 1280;
 
     private final int HEIGHT = 720;
-    private de.hhn.it.devtools.javafx.controllers.RootController rootController;
-    private Map<String, de.hhn.it.devtools.javafx.modules.Module> moduleMap;
+    private RootController rootController;
+    private Map<String, Module> moduleMap;
 
-    public Main() {
+    public MainView() {
         moduleMap = new HashMap<>();
     }
 
-
+    /**
+     * the main method.
+     *
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
 
         System.out.println("java version: " + System.getProperty("java.version"));
@@ -45,9 +53,8 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        addModule("CoffeeMakerService");
         addModule("Template");
-        addModule("Calendar");
+
     }
 
     @Override
@@ -65,8 +72,8 @@ public class Main extends Application {
             logger.info("addModule: Loading Module: \"" + name + "\"!");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/" + name + ".fxml"));
             Node content = loader.load();
-            de.hhn.it.devtools.javafx.controllers.Controller controller = loader.getController();
-            de.hhn.it.devtools.javafx.modules.Module module = new de.hhn.it.devtools.javafx.modules.Module(name, controller, content);
+            Controller controller = loader.getController();
+            Module module = new Module(name, controller, content);
             rootController.addModule(module);
         } catch (IOException e) {
             e.printStackTrace();

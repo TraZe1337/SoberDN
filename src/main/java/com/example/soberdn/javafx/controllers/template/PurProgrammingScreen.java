@@ -1,4 +1,4 @@
-package de.hhn.it.devtools.javafx.controllers.template;
+package com.example.soberdn.javafx.controllers.template;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

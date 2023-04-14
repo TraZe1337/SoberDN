@@ -1,6 +1,6 @@
-package de.hhn.it.devtools.javafx.controllers.template;
+package com.example.soberdn.javafx.controllers.template;
 
-import de.hhn.it.devtools.javafx.controllers.Controller;
+import com.example.soberdn.javafx.controllers.Controller ;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;

@@ -1,11 +1,6 @@
-package de.hhn.it.devtools.javafx.controllers;
+package com.example.soberdn.javafx.controllers;
 
-import de.hhn.it.devtools.javafx.modules.Module;
-import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.ResourceBundle;
-
+import com.example.soberdn.javafx.modules.Module;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -13,77 +8,82 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.MenuBar;
 import javafx.scene.layout.AnchorPane;
 
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.ResourceBundle;
+
 public class RootController extends Controller implements Initializable {
-  private static final org.slf4j.Logger logger =
-          org.slf4j.LoggerFactory.getLogger(RootController.class);
+    private static final org.slf4j.Logger logger =
+            org.slf4j.LoggerFactory.getLogger(RootController.class);
 
-  @FXML
-  private MenuBar menuBar;
+    @FXML
+    private MenuBar menuBar;
 
-  @FXML
-  private ListView<String> listView;
+    @FXML
+    private ListView<String> listView;
 
-  @FXML
-  private AnchorPane modulePane;
-
-
-
-  private Module actualModule = null;
-  private Map<String, Module> moduleMap;
+    @FXML
+    private AnchorPane modulePane;
 
 
-  public RootController() {
-    logger.debug("RootController created.");
-    moduleMap = new HashMap<>();
-  }
 
-  /**
-   * Called to initialize a controller after its root element has been
-   * completely processed.
-   *
-   * @param location  The location used to resolve relative paths for the root object, or
-   *                  <code>null</code> if the location is not known.
-   * @param resources The resources used to localize the root object, or <code>null</code> if
-   */
-  @Override
-  public void initialize(final URL location, final ResourceBundle resources) {
-    listView.getSelectionModel().selectedItemProperty().addListener(
-            (ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
-              logger.info("Selected item: " + newValue);
-              modulePane.getChildren().clear();
-              Module module = moduleMap.get(newValue);
-              // notify actual controller that it will pause (going to be invisible)
-              actualModule.getController().pause();
-              actualModule = module;
-              modulePane.getChildren().add(module.getSceneGraph());
-              // notify new actual controller that its content is now visible
-              module.getController().resume();
-            }
-    );
+    private Module actualModule = null;
+    private Map<String, Module> moduleMap;
 
-  }
 
-  public void addModule(Module module) {
-    listView.getItems().add(module.getName());
-    moduleMap.put(module.getName(), module);
-    if (actualModule == null) {
-      actualModule = module;
-      listView.getSelectionModel().selectFirst();
+    public RootController() {
+        logger.debug("RootController created.");
+        moduleMap = new HashMap<>();
     }
-  }
 
-  @Override
-  public void shutdown() {
-    logger.debug("shutdown: - ");
-    // Iterate over all module controllers and ask them to shut down their parts, e.g. store
-    // files, stop threads, etc.
+    /**
+     * Called to initialize a controller after its root element has been
+     * completely processed.
+     *
+     * @param location  The location used to resolve relative paths for the root object, or
+     *                  <code>null</code> if the location is not known.
+     * @param resources The resources used to localize the root object, or <code>null</code> if
+     */
+    @Override
+    public void initialize(final URL location, final ResourceBundle resources) {
+        listView.getSelectionModel().selectedItemProperty().addListener(
+                (ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+                    logger.info("Selected item: " + newValue);
+                    modulePane.getChildren().clear();
+                    Module module = moduleMap.get(newValue);
+                    // notify actual controller that it will pause (going to be invisible)
+                    actualModule.getController().pause();
+                    actualModule = module;
+                    modulePane.getChildren().add(module.getSceneGraph());
+                    // notify new actual controller that its content is now visible
+                    module.getController().resume();
+                }
+        );
 
-    for (String moduleName : moduleMap.keySet()) {
-      logger.debug("Ask {} to shut down.", moduleName);
-      Module module = moduleMap.get(moduleName);
-      Controller controller = module.getController();
-      controller.shutdown();
     }
-    logger.debug("All controllers shutdowns executed. That's it.");
-  }
+
+    public void addModule(Module module) {
+        listView.getItems().add(module.getName());
+        moduleMap.put(module.getName(), module);
+        if (actualModule == null) {
+            actualModule = module;
+            listView.getSelectionModel().selectFirst();
+        }
+    }
+
+    @Override
+    public void shutdown() {
+        logger.debug("shutdown: - ");
+        // Iterate over all module controllers and ask them to shut down their parts, e.g. store
+        // files, stop threads, etc.
+
+        for (String moduleName : moduleMap.keySet()) {
+            logger.debug("Ask {} to shut down.", moduleName);
+            Module module = moduleMap.get(moduleName);
+            Controller controller = module.getController();
+            controller.shutdown();
+        }
+        logger.debug("All controllers shutdowns executed. That's it.");
+    }
 }
