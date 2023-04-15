@@ -1,5 +1,6 @@
 package com.example.soberdn.javafx.Bar;
 
+import com.example.soberdn.components.SimpleSoberDNService;
 import com.example.soberdn.javafx.controllers.FxmlCreatesSoberSecondScreen;
 import com.example.soberdn.javafx.controllers.SoberDNController;
 import com.example.soberdn.javafx.controllers.SoberDNScreenController;
@@ -8,6 +9,7 @@ import com.example.soberdn.javafx.controllers.template.SingletonAttributeStore;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -24,6 +26,7 @@ public class LoginScreen implements Initializable {
 
     public static final String SCREEN = "login.screen";
 
+
     SingletonAttributeStore singletonAttributeStore = SingletonAttributeStore.getReference();
 
     public SoberDNScreenController screenController;
@@ -32,6 +35,8 @@ public class LoginScreen implements Initializable {
     Button buttonMenu;
     @FXML
     VBox vBox;
+    @FXML
+    VBox vBox1;
     @FXML
     HBox hBox;
     @FXML
@@ -49,13 +54,16 @@ public class LoginScreen implements Initializable {
     @FXML
     TextField textUsername;
     @FXML
-    TextField textPassword;
+    PasswordField textPassword;
+    private SimpleSoberDNService service;
+
     public LoginScreen(){
        }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         screenController =
                 (SoberDNScreenController) singletonAttributeStore.getAttribute(SoberDNController.SCREEN_CONTROLLER);
+        service = (SimpleSoberDNService) singletonAttributeStore.getAttribute("service");
     }
 
     public void click1(){
@@ -70,12 +78,17 @@ public class LoginScreen implements Initializable {
         if(!radio1.isSelected()&&!radio2.isSelected()){
             throw new IllegalArgumentException("Dont do that");
         } else if (radio1.isSelected()) {
-            singletonAttributeStore.setAttribute(SoberDNController.SCREEN_CONTROLLER, screenController);
-            screenController.switchTo(LoginScreen.SCREEN, FxmlCreatesSoberSecondScreen.SCREEN1 );
+            if (service.checkUserLogin(textUsername.getText(), textPassword.getText())) {
+                singletonAttributeStore.setAttribute(SoberDNController.SCREEN_CONTROLLER, screenController);
+                screenController.switchTo(LoginScreen.SCREEN, FxmlCreatesSoberSecondScreen.SCREEN1 );
+            }
+
         }
         else if(radio2.isSelected()){
-            singletonAttributeStore.setAttribute(SoberDNController.SCREEN_CONTROLLER, screenController);
-            screenController.switchTo(LoginScreen.SCREEN, BarScreen.SCREEN );
+            if (service.checkBarLogin(textUsername.getText(), textPassword.getText())) {
+                singletonAttributeStore.setAttribute(SoberDNController.SCREEN_CONTROLLER, screenController);
+                screenController.switchTo(LoginScreen.SCREEN, BarScreen.SCREEN );
+            }
         }
     }
 }
