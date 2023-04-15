@@ -1,13 +1,9 @@
 package com.example.soberdn.javafx.controllers;
 
 import com.example.soberdn.components.SimpleSoberDNService;
+import com.example.soberdn.javafx.Bar.UserShopScreen;
 import com.example.soberdn.javafx.controllers.template.SingletonAttributeStore;
 import com.google.zxing.WriterException;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -18,70 +14,92 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import java.io.IOException;
+import java.net.URL;
+import java.time.LocalDate;
+import java.util.ResourceBundle;
+
 public class SoberQrCodeScreen implements Initializable {
 
-  @FXML
-  Button buttonShop;
-  @FXML
-  Button buttonBalance;
-  @FXML
-  Label label1;
-  @FXML
-  AnchorPane anchorPane;
-  @FXML
-  ImageView imageView;
-  @FXML
-  VBox vBox;
-  @FXML
-  HBox hBox;
-  @FXML
-  HBox hBox1;
+    @FXML
+    Button buttonShop;
+    @FXML
+    Button buttonBalance;
+    @FXML
+    Label label1;
+    @FXML
+    AnchorPane anchorPane;
+    @FXML
+    ImageView imageView;
+    @FXML
+    VBox vBox;
+    @FXML
+    HBox hBox;
+    @FXML
+    HBox hBox1;
 
-  public static final String SCREEN = "QRScreen.screen";
-  SingletonAttributeStore singletonAttributeStore = SingletonAttributeStore.getReference();
-  private SoberDNScreenController screenController;
+    boolean dothis = false;
 
-  public void SoberQrCodeScreen() {
-  }
+    public static final String SCREEN = "QRScreen.screen";
+    SingletonAttributeStore singletonAttributeStore = SingletonAttributeStore.getReference();
+    private SoberDNScreenController screenController;
 
-  @Override
-  public void initialize(URL location, ResourceBundle resources) {
-    screenController =
-        (SoberDNScreenController) singletonAttributeStore.getAttribute(
-            SoberDNController.SCREEN_CONTROLLER);
-    SimpleSoberDNService service = (SimpleSoberDNService) singletonAttributeStore.getAttribute(
-        "service");
-    int userId = (int) singletonAttributeStore.getAttribute("userId");
-    try {
-      imageView.setImage(new Image(getClass().getResourceAsStream(service.createAddQRCode(userId))));
-    } catch (IOException e) {
-      throw new RuntimeException(e);
-    } catch (WriterException e) {
-      throw new RuntimeException(e);
+    public void SoberQrCodeScreen() {
     }
 
-  }
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        screenController =
+                (SoberDNScreenController) singletonAttributeStore.getAttribute(
+                        SoberDNController.SCREEN_CONTROLLER);
+        SimpleSoberDNService service = (SimpleSoberDNService) singletonAttributeStore.getAttribute(
+                "service");
+        try {
+            Image i = (Image) singletonAttributeStore.getAttribute("image");
+            imageView.setImage(i);
+            singletonAttributeStore.removeAttribute("image");
+            dothis = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if(!dothis) {
+            int userId = (int) singletonAttributeStore.getAttribute("userId");
+            try {
+                imageView.setImage(new Image(getClass().getResourceAsStream(service.createAddQRCode(userId))));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } catch (WriterException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
 
-  public void goBack() {
-    singletonAttributeStore.setAttribute(SoberDNController.SCREEN_CONTROLLER, screenController);
-    screenController.switchTo(SoberQrCodeScreen.SCREEN, FxmlCreatesSoberSecondScreen.SCREEN1);
-  }
+    public void goBack() {
+        singletonAttributeStore.setAttribute(SoberDNController.SCREEN_CONTROLLER, screenController);
+        screenController.switchTo(SoberQrCodeScreen.SCREEN, FxmlCreatesSoberSecondScreen.SCREEN1);
+    }
 
-  public void doThis() {
-    buttonBalance.setStyle("-fx-background-color : #3366ff ;");
-  }
+    public void doThis() {
+        buttonBalance.setStyle("-fx-background-color : #80bfff ;");
+    }
 
-  public void doThat() {
-    buttonBalance.setStyle("-fx-background-color : #6699ff");
-  }
+    public void doThat() {
+        buttonBalance.setStyle("-fx-background-color : #99ccff");
+    }
 
-  public void doThis2() {
-    buttonShop.setStyle("-fx-background-color : #3366ff ;");
-  }
+    public void doThis2() {
+        buttonShop.setStyle("-fx-background-color : #80bfff ;");
+    }
 
-  public void doThat2() {
-    buttonShop.setStyle("-fx-background-color : #6699ff");
-  }
+    public void doThat2() {
+        buttonShop.setStyle("-fx-background-color :  #99ccff");
+    }
+
+    public void goToShop(){
+      singletonAttributeStore.setAttribute(SoberDNController.SCREEN_CONTROLLER, screenController);
+      screenController.switchTo(SoberQrCodeScreen.SCREEN, UserShopScreen.SCREEN);
+
+    }
 
 
 }

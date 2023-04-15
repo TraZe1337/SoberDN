@@ -5,49 +5,37 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<AnchorPane fx:id="anchorPane" prefHeight="670.0" prefWidth="1088.0"
-  xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-  fx:controller="com.example.soberdn.javafx.Bar.BarScreen">
+
+<AnchorPane fx:id="anchorPane" prefHeight="670.0" prefWidth="1088.0" style="-fx-background-color: #ffffcc;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.soberdn.javafx.Bar.BarScreen">
   <children>
-    <VBox fx:id="vBox" prefHeight="673.0" prefWidth="201.0" style="-fx-background-color: #6699ff;">
+    <VBox fx:id="vBox" prefHeight="673.0" prefWidth="201.0" style="-fx-background-color: #99ccff;">
       <children>
-        <Button fx:id="buttonMenu" mnemonicParsing="false" prefHeight="92.0" prefWidth="201.0"
-          style="-fx-background-color: #1a66ff;" text="Menu">
+        <Button fx:id="buttonMenu" mnemonicParsing="false" prefHeight="92.0" prefWidth="201.0" style="-fx-background-color: #80bfff;" text="Menu">
           <font>
-            <Font name="Hiragino Sans W2" size="40.0"/>
+            <Font name="Hiragino Sans W2" size="40.0" />
           </font>
         </Button>
-        <Button fx:id="buttonAdd" mnemonicParsing="false" onMouseEntered="#dark1"
-          onMouseExited="#light1" prefHeight="70.0" prefWidth="210.0"
-          style="-fx-background-color: #6699ff;" text="Age Check">
+        <Button fx:id="buttonAdd" mnemonicParsing="false" onMouseEntered="#dark1" onMouseExited="#light1" prefHeight="70.0" prefWidth="210.0" style="-fx-background-color: #99ccff;" text="Age Check">
           <font>
-            <Font name="Hiragino Sans W2" size="20.0"/>
+            <Font name="Hiragino Sans W2" size="20.0" />
           </font>
         </Button>
-        <Button fx:id="buttonQrScan" mnemonicParsing="false" onAction="#qrScan"
-          onMouseEntered="#dark2" onMouseExited="#light2" prefHeight="70.0" prefWidth="219.0"
-          style="-fx-background-color: #6699ff;" text="QR-Code Scan ">
+        <Button fx:id="buttonQrScan" mnemonicParsing="false" onAction="#qrScan" onMouseEntered="#dark2" onMouseExited="#light2" prefHeight="70.0" prefWidth="219.0" style="-fx-background-color: #99ccff;" text="QR-Code Scan ">
           <font>
-            <Font name="Hiragino Sans W2" size="20.0"/>
+            <Font name="Hiragino Sans W2" size="20.0" />
           </font>
         </Button>
-        <Button fx:id="buttonHistory" mnemonicParsing="false" onMouseEntered="#dark3"
-          onMouseExited="#light3" prefHeight="70.0" prefWidth="218.0"
-          style="-fx-background-color: #6699ff;" text="History">
+        <Button fx:id="buttonHistory" mnemonicParsing="false" onMouseEntered="#dark3" onMouseExited="#light3" prefHeight="70.0" prefWidth="218.0" style="-fx-background-color: #99ccff;" text="History">
           <font>
-            <Font name="Hiragino Sans W2" size="20.0"/>
+            <Font name="Hiragino Sans W2" size="20.0" />
           </font>
         </Button>
       </children>
     </VBox>
-    <HBox fx:id="hBox" layoutX="201.0" prefHeight="92.0" prefWidth="888.0"
-      style="-fx-background-color: #3377ff;"/>
-    <HBox fx:id="fileChooser" layoutX="449.0" layoutY="234.0" prefHeight="205.0" prefWidth="391.0"
-      visible="false">
+    <HBox fx:id="hBox" layoutX="201.0" prefHeight="92.0" prefWidth="888.0" style="-fx-background-color: #99ccff;" />
+    <HBox fx:id="fileChooser" layoutX="449.0" layoutY="234.0" prefHeight="205.0" prefWidth="391.0" visible="false">
       <children>
-        <Button fx:id="openFileButton" mnemonicParsing="false" onAction="#chooseFile"
-          onMouseEntered="#dark3" onMouseExited="#light3" prefHeight="70.0" prefWidth="218.0"
-          style="-fx-background-color: #6699ff;" text="Choose a file..."/>
+        <Button fx:id="openFileButton" mnemonicParsing="false" onAction="#chooseFile" onMouseEntered="#dark3" onMouseExited="#light3" prefHeight="70.0" prefWidth="218.0" style="-fx-background-color: #6699ff;" text="Choose a file..." />
       </children>
     </HBox>
   </children>

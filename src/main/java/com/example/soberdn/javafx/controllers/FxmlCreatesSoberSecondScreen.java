@@ -54,19 +54,19 @@ public class FxmlCreatesSoberSecondScreen implements Initializable {
   }
 
   public void doThis() {
-    button2.setStyle("-fx-background-color : #3366ff ;");
+    button2.setStyle("-fx-background-color : #80bfff ;");
   }
 
   public void doThat() {
-    button2.setStyle("-fx-background-color : #6699ff");
+    button2.setStyle("-fx-background-color : #99ccff");
   }
 
   public void doThis2() {
-    button1.setStyle("-fx-background-color : #3366ff ;");
+    button1.setStyle("-fx-background-color : #80bfff ;");
   }
 
   public void doThat2() {
-    button1.setStyle("-fx-background-color : #6699ff");
+    button1.setStyle("-fx-background-color : #99ccff");
   }
 
 
