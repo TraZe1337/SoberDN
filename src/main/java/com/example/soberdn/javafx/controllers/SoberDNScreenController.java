@@ -13,12 +13,14 @@ public class SoberDNScreenController {
         private static final org.slf4j.Logger logger =
         org.slf4j.LoggerFactory.getLogger(SoberDNScreenController.class);
 
-        AnchorPane anchorPane;
+        public AnchorPane anchorPane;
         public SoberScreen soberScreen;
         public SecondSober secondSober;
         public FxmlCreatesSoberSecondScreen fxmlCreatesSoberSecondScreen;
+        public SoberQrCodeScreen soberQrCodeScreen;
 
         public Node soberScreenContent;
+        public Node qrCodeScreen;
 
         public SoberDNScreenController(final AnchorPane anchorPane) {
             this.anchorPane = anchorPane;
@@ -47,6 +49,19 @@ public class SoberDNScreenController {
                 fxmlCreatesSoberSecondScreen = loader.getController();}
             return soberScreenContent;
         }
+        public Node addQrScreen(){
+            if(qrCodeScreen == null){
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/soberdn/SoberQrCodeScreen.fxml"));
+                try{
+                    qrCodeScreen = loader.load();
+                }
+                catch (IOException e){
+                    e.printStackTrace();
+                }
+                soberQrCodeScreen = loader.getController();
+            }
+            return qrCodeScreen;
+        }
 
 
         public void switchTo(String fromScreen, String toScreen) throws UnknownTransitionException {
@@ -62,6 +77,10 @@ public class SoberDNScreenController {
                 if(toScreen.equals(FxmlCreatesSoberSecondScreen.SCREEN1)){
                     anchorPane.getChildren().clear();
                     anchorPane.getChildren().add(getFxmlScreen());
+                }
+                if(toScreen.equals(SoberQrCodeScreen.SCREEN)){
+                    anchorPane.getChildren().clear();
+                    anchorPane.getChildren().add(addQrScreen());
                 }
             }
         }

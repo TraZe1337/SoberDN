@@ -30,7 +30,7 @@
                <font>
                   <Font size="46.0" />
                </font></Button>
-            <Button fx:id="button2" mnemonicParsing="false" onAction="#onAction2" prefHeight="117.0" prefWidth="339.0" style="-fx-background-color: #6699ff;" text="Buy Drinks">
+            <Button fx:id="button2" mnemonicParsing="false" onAction="#onAction2" onMouseEntered="#doThis" onMouseExited="#doThat" prefHeight="117.0" prefWidth="339.0" style="-fx-background-color: #6699ff;" text="Buy Drinks">
                <font>
                   <Font size="46.0" />
                </font></Button>

@@ -20,7 +20,7 @@ public class SoberDNController extends Controller implements Initializable {
     SoberDNScreenController screenController;
 
     public SoberDNController() {
-        logger.debug("Calendar Controller created.");
+        logger.debug("Sober Controller created.");
     }
 
     @Override
@@ -29,9 +29,8 @@ public class SoberDNController extends Controller implements Initializable {
         screenController = new SoberDNScreenController(soberAnchorPane);
         SingletonAttributeStore singletonAttributeStore = SingletonAttributeStore.getReference();
         singletonAttributeStore.setAttribute(SCREEN_CONTROLLER, screenController);
-        //singletonAttributeStore.setAttribute("calendar",new StudyCalendar("Test"));
         try {
-            screenController.switchTo(null, SecondSober.SCREEN1);
+            screenController.switchTo(null, FxmlCreatesSoberSecondScreen.SCREEN1);
         } catch (UnknownTransitionException e) {
             e.printStackTrace();
         }

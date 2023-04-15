@@ -1,12 +1,11 @@
 package com.example.soberdn.javafx.controllers;
 
-
-import com.example.soberdn.javafx.controllers.template.ScreenController;
 import com.example.soberdn.javafx.controllers.template.SingletonAttributeStore;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -14,26 +13,30 @@ import javafx.scene.layout.VBox;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class FxmlCreatesSoberSecondScreen implements Initializable {
+public class SoberQrCodeScreen implements Initializable {
 
     @FXML
-    Button button1;
+    Button buttonShop;
     @FXML
-    Button button2;
+    Button buttonBalance;
     @FXML
     Label label1;
     @FXML
-    VBox vbox1;
-    @FXML
-    HBox vbox2;
-    @FXML
     AnchorPane anchorPane;
+    @FXML
+    ImageView imageView;
+    @FXML
+    VBox vBox;
+    @FXML
+    HBox hBox;
+    @FXML
+    HBox hBox1;
 
-    public static final String SCREEN1 = "secondSober.screen";
-    private SoberDNScreenController screenController;
+    public static final String SCREEN = "QRScreen.screen";
     SingletonAttributeStore singletonAttributeStore = SingletonAttributeStore.getReference();
+    private SoberDNScreenController screenController;
 
-    public void FxmlCreatesControllerScreen(){
+    public void SoberQrCodeScreen() {
     }
 
     @Override
@@ -42,19 +45,9 @@ public class FxmlCreatesSoberSecondScreen implements Initializable {
                 (SoberDNScreenController) singletonAttributeStore.getAttribute(SoberDNController.SCREEN_CONTROLLER);
 
     }
-    public void onAction1() {
+    public void goBack(){
         singletonAttributeStore.setAttribute(SoberDNController.SCREEN_CONTROLLER, screenController);
-        screenController.switchTo(FxmlCreatesSoberSecondScreen.SCREEN1,SoberQrCodeScreen.SCREEN);
-    }
-
-    public void doThis(){
-        button2.setStyle("-fx-background-color : #3366ff ;");
-    }
-    public void doThat(){
-        button2.setStyle("-fx-background-color : #6699ff");
-    }
-
-    public void onAction2() {
+        screenController.switchTo(SoberQrCodeScreen.SCREEN,FxmlCreatesSoberSecondScreen.SCREEN1);
     }
 
 }
