@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.soberdn.javafx.Bar.BarScreen"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="670.0" prefWidth="1088.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.soberdn.javafx.Bar.BarScreen">
+   <children>
+      <VBox prefHeight="673.0" prefWidth="201.0" style="-fx-background-color: #6699ff;">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="92.0" prefWidth="201.0" style="-fx-background-color: #4d88ff;" text="Menu" />
+            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="210.0" style="-fx-background-color: #6699ff;" text="Age Check" />
+            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="219.0" style="-fx-background-color: #6699ff;" text="QR-Code Scan " />
+            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="218.0" style="-fx-background-color: #6699ff;" text="History" />
+         </children>
+      </VBox>
+      <HBox layoutX="201.0" prefHeight="92.0" prefWidth="888.0" style="-fx-background-color: #3377ff;" />
+   </children>
 </AnchorPane>
