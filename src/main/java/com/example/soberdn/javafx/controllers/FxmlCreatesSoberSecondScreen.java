@@ -27,6 +27,8 @@ public class FxmlCreatesSoberSecondScreen implements Initializable {
   HBox vbox2;
   @FXML
   AnchorPane anchorPane;
+  @FXML
+  Label coinCounter;
 
   public static final String SCREEN1 = "secondSober.screen";
   private SoberDNScreenController screenController;
@@ -44,7 +46,7 @@ public class FxmlCreatesSoberSecondScreen implements Initializable {
     service = (SimpleSoberDNService) singletonAttributeStore.getAttribute("service");
     int userId = (int) singletonAttributeStore.getAttribute("userId");
     label1.setText("Hallo " + service.getUserById(userId).getName());
-
+    coinCounter.setText("" + service.getUserById(userId).getBalance() + " SCs");
   }
 
   public void onAction1() {
