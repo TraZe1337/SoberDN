@@ -22,7 +22,7 @@ public class SimpleSoberDNService implements SoberDNService {
     MainView mainView = new MainView();
 
     try {
-      s.createAddQRCode(true, 1234);
+      s.createAddQRCode(1234);
     } catch (IOException e) {
       throw new RuntimeException(e);
     } catch (WriterException e) {

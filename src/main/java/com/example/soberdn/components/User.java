@@ -26,6 +26,7 @@ public class User {
   public String createPayQRCode(int amount) throws IOException, WriterException {
     return service.createPayQRCode(id, amount);
   }
+
   public void addCoins() {
     balance += AMOUNT_OF_COINS_PER_SOBER;
   }
@@ -43,6 +44,6 @@ public class User {
   }
 
   public void removeCoins(int amount) {
-    balance =- amount;
+    balance = -amount;
   }
 }

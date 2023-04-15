@@ -27,7 +27,8 @@ public class QRCodeGenerator {
     String charset = "UTF-8";
 //the BitMatrix class represents the 2D matrix of bits
 //MultiFormatWriter is a factory class that finds the appropriate Writer subclass for the BarcodeFormat requested and encodes the barcode with the supplied contents.
-    BitMatrix matrix = new MultiFormatWriter().encode(new String(textToQR.getBytes(charset), charset),
+    BitMatrix matrix = new MultiFormatWriter().encode(
+        new String(textToQR.getBytes(charset), charset),
         BarcodeFormat.QR_CODE, w, h);
     MatrixToImageWriter.writeToFile(matrix, "png",
         new File(path));
