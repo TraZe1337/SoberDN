@@ -1,6 +1,7 @@
 package com.example.soberdn.javafx.controllers;
 
 
+import com.example.soberdn.javafx.Bar.UserShopScreen;
 import com.example.soberdn.components.SimpleSoberDNService;
 import com.example.soberdn.javafx.controllers.template.SingletonAttributeStore;
 import java.net.URL;
@@ -55,22 +56,25 @@ public class FxmlCreatesSoberSecondScreen implements Initializable {
   }
 
   public void doThis() {
-    button2.setStyle("-fx-background-color : #3366ff ;");
+    button2.setStyle("-fx-background-color : #80bfff ;");
   }
 
   public void doThat() {
-    button2.setStyle("-fx-background-color : #6699ff");
+    button2.setStyle("-fx-background-color : #99ccff");
   }
 
   public void doThis2() {
-    button1.setStyle("-fx-background-color : #3366ff ;");
+    button1.setStyle("-fx-background-color : #80bfff ;");
   }
 
   public void doThat2() {
-    button1.setStyle("-fx-background-color : #6699ff");
+    button1.setStyle("-fx-background-color : #99ccff");
   }
 
-  public void onAction2() {
-  }
+
+    public void onAction2() {
+        singletonAttributeStore.setAttribute(SoberDNController.SCREEN_CONTROLLER, screenController);
+        screenController.switchTo(FxmlCreatesSoberSecondScreen.SCREEN1, UserShopScreen.SCREEN);
+    }
 
 }

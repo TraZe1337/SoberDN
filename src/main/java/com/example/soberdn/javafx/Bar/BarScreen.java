@@ -68,27 +68,26 @@ public class BarScreen implements Initializable {
     }
 
     public void dark1() {
-        buttonAdd.setStyle("-fx-background-color : #3366ff ;");
+        buttonAdd.setStyle("-fx-background-color : #80bfff ;");
     }
-
     public void dark2() {
-        buttonQrScan.setStyle("-fx-background-color : #3366ff ;");
+        buttonQrScan.setStyle("-fx-background-color : #80bfff ;");
     }
 
     public void dark3() {
-        buttonHistory.setStyle("-fx-background-color : #3366ff ;");
+        buttonHistory.setStyle("-fx-background-color : #80bfff ;");
     }
 
     public void light1() {
-        buttonAdd.setStyle("-fx-background-color : #6699ff");
+        buttonAdd.setStyle("-fx-background-color : #99ccff");
     }
 
     public void light2() {
-        buttonQrScan.setStyle("-fx-background-color : #6699ff");
+        buttonQrScan.setStyle("-fx-background-color : #99ccff");
     }
 
     public void light3() {
-        buttonHistory.setStyle("-fx-background-color : #6699ff");
+        buttonHistory.setStyle("-fx-background-color : #99ccff");
     }
 
     public void chooseFile() {

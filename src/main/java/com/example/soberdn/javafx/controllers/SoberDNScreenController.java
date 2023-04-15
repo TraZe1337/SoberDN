@@ -2,6 +2,7 @@ package com.example.soberdn.javafx.controllers;
 
 import com.example.soberdn.javafx.Bar.BarScreen;
 import com.example.soberdn.javafx.Bar.LoginScreen;
+import com.example.soberdn.javafx.Bar.UserShopScreen;
 import com.example.soberdn.javafx.SoberScreen;
 import com.example.soberdn.javafx.controllers.template.UnknownTransitionException;
 import javafx.fxml.FXMLLoader;
@@ -21,8 +22,10 @@ public class SoberDNScreenController {
     public FxmlCreatesSoberSecondScreen fxmlCreatesSoberSecondScreen;
     public SoberQrCodeScreen soberQrCodeScreen;
     public LoginScreen loginScreen;
+    public UserShopScreen userShopScreen;
 
     private BarScreen barScreen;
+    private Node shopScreenContent;
 
     private Node barScreenContent;
 
@@ -74,6 +77,7 @@ public class SoberDNScreenController {
         }
         return qrCodeScreen;
     }
+
     private Node getBarScreen() {
         if (barScreenContent == null) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/soberdn/BarScreen.fxml"));
@@ -98,6 +102,19 @@ public class SoberDNScreenController {
             loginScreen = loader.getController();
         }
         return loginScreenContent;
+    }
+
+    public Node shopScreen() {
+        if (shopScreenContent == null) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/soberdn/UserShopScreen.fxml"));
+            try {
+                shopScreenContent = loader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            userShopScreen = loader.getController();
+        }
+        return shopScreenContent;
     }
 
 
@@ -126,6 +143,10 @@ public class SoberDNScreenController {
         if (toScreen.equals(BarScreen.SCREEN)) {
             anchorPane.getChildren().clear();
             anchorPane.getChildren().add(getBarScreen());
+        }
+        if (toScreen.equals(UserShopScreen.SCREEN)){
+            anchorPane.getChildren().clear();
+            anchorPane.getChildren().add(shopScreen());
         }
     }
 }

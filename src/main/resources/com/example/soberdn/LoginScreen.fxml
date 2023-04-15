@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.BoxBlur?>
@@ -11,20 +12,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.control.PasswordField?>
 <AnchorPane fx:id="anch" prefHeight="670.0" prefWidth="1088.0" style="-fx-background-color: #ffffcc;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.soberdn.javafx.Bar.LoginScreen">
    <children>
-      <VBox fx:id="vBox1" layoutX="-2.0" prefHeight="92.0" prefWidth="213.0" style="-fx-background-color: #6699ff;">
+      <VBox fx:id="vBox1" layoutX="-2.0" prefHeight="92.0" prefWidth="199.0" style="-fx-background-color: #6699ff;" />
+      <HBox fx:id="hBox" layoutX="195.0" layoutY="-1.0" prefHeight="94.0" prefWidth="904.0" style="-fx-background-color: #99ccff;">
          <children>
-            <Button fx:id="buttonMenu" mnemonicParsing="false" prefHeight="93.0" prefWidth="218.0" style="-fx-background-color: #80bfff;" text="Login">
+            <Button fx:id="buttonMenu" mnemonicParsing="false" prefHeight="93.0" prefWidth="891.0" style="-fx-background-color: #80bfff;" text="Login">
                <font>
                   <Font name="Hiragino Sans W2" size="40.0" />
                </font>
             </Button>
-         </children>
-      </VBox>
-      <HBox fx:id="hBox" layoutX="211.0" layoutY="-1.0" prefHeight="94.0" prefWidth="888.0" style="-fx-background-color: #99ccff;" />
-      <AnchorPane fx:id="blur" layoutX="483.0" layoutY="217.0" prefHeight="271.0" prefWidth="244.0" style="-fx-background-color: #99ccff;">
+         </children></HBox>
+      <AnchorPane fx:id="blur" layoutX="541.0" layoutY="223.0" prefHeight="271.0" prefWidth="244.0" style="-fx-background-color: #99ccff;">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
@@ -32,7 +31,7 @@
             <BoxBlur iterations="2" />
          </effect>
       </AnchorPane>
-      <VBox fx:id="vBox" layoutX="441.0" layoutY="179.0" prefHeight="358.0" prefWidth="297.0" spacing="20.0">
+      <VBox fx:id="vBox" layoutX="510.0" layoutY="198.0" prefHeight="343.0" prefWidth="281.0" spacing="20.0">
          <children>
             <RadioButton fx:id="radio1" mnemonicParsing="false" onAction="#click1" selected="true" text="User" />
             <RadioButton fx:id="radio2" mnemonicParsing="false" onAction="#click2" text="Bar" />
@@ -52,6 +51,6 @@
             <Insets left="60.0" top="60.0" />
          </padding>
       </VBox>
-      <VBox fx:id="vBox10" layoutX="-5.0" layoutY="92.0" prefHeight="580.0" prefWidth="217.0" style="-fx-background-color: #99ccff;" />
+      <VBox fx:id="vBox10" layoutX="-5.0" layoutY="92.0" prefHeight="580.0" prefWidth="201.0" style="-fx-background-color: #99ccff;" />
    </children>
 </AnchorPane>
