@@ -11,6 +11,5 @@ public class SoberController {
     public SoberController(final AnchorPane soberanchorPane){
         this.anchorPane = soberanchorPane;
 
-
     }
 }

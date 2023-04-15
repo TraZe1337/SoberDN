@@ -10,27 +10,37 @@ public class SoberDNScreenController {
         org.slf4j.LoggerFactory.getLogger(SoberDNScreenController.class);
 
         AnchorPane anchorPane;
-        private SoberScreen calendarScreen;
+        private SoberScreen soberScreen;
+        private SecondSober secondSober;
 
         public SoberDNScreenController(final AnchorPane calendarAnchorPane) {
             this.anchorPane = calendarAnchorPane;
         }
 
-        private SoberScreen getFirstScreen() {
-            if (calendarScreen == null) {
-                calendarScreen = new SoberScreen(this);
+        public SoberScreen getFirstScreen() {
+            if (soberScreen == null) {
+                soberScreen = new SoberScreen(this);
             }
-            return calendarScreen;
+            return soberScreen;
+        }
+        public SecondSober getSecondScreen(){
+            if(secondSober == null){
+                secondSober = new SecondSober(this);
+            }
+            return secondSober;
         }
 
 
         public void switchTo(String fromScreen, String toScreen) throws UnknownTransitionException {
             logger.info("Switching from " + fromScreen + " to " + toScreen);
             switch (toScreen) {
-                case SoberScreen.SCREEN:
+                case SoberScreen.SCREEN0:
                     anchorPane.getChildren().clear();
                     anchorPane.getChildren().add(getFirstScreen());
                     break;
+                case SecondSober.SCREEN1:
+                    anchorPane.getChildren().clear();
+                    anchorPane.getChildren().add(getSecondScreen());
                 default:
                     throw new UnknownTransitionException("unknown screen: " + toScreen);
             }
