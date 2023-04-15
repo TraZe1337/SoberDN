@@ -10,8 +10,5 @@ module com.example.soberdn {
     opens com.example.soberdn.javafx.controllers.template to javafx.fxml;
     opens com.example.soberdn.javafx.controllers to javafx.fxml;
     opens com.example.soberdn to javafx.fxml;
-    opens com.example.soberdn.javafx.controllers to javafx.fxml;
-    opens com.example.soberdn.javafx.controllers.template to javafx.fxml;
     exports com.example.soberdn;
-    exports com.example.soberdn.javafx.controllers to javafx.fxml;
 }
