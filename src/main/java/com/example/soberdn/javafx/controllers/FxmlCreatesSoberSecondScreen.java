@@ -36,7 +36,6 @@ public class FxmlCreatesSoberSecondScreen implements Initializable {
         SingletonAttributeStore singletonAttributeStore = SingletonAttributeStore.getReference();
         screenController =
                 (SoberDNScreenController) singletonAttributeStore.getAttribute(SoberDNController.SCREEN_CONTROLLER);
-
     }
 
     @Override
