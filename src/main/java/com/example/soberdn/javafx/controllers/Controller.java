@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 public abstract class Controller {
   private static final Logger logger = LoggerFactory.getLogger(Controller.class);
 
+  public Controller (){}
+
   void pause() {
     logger.debug("pause: -");
   }

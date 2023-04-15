@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
 public class SoberDNController extends Controller implements Initializable {
     private static final org.slf4j.Logger logger =
             org.slf4j.LoggerFactory.getLogger(SoberDNController.class);
-    public static final String SCREEN_CONTROLLER = "screen.controller";
+    public static final String SCREEN_CONTROLLER = "SoberScreen.controller";
 
     @FXML
     AnchorPane soberAnchorPane;
@@ -31,7 +31,7 @@ public class SoberDNController extends Controller implements Initializable {
         singletonAttributeStore.setAttribute(SCREEN_CONTROLLER, screenController);
         //singletonAttributeStore.setAttribute("calendar",new StudyCalendar("Test"));
         try {
-            screenController.switchTo(null, SoberScreen.SCREEN);
+            screenController.switchTo(null, SoberScreen.SCREEN0);
         } catch (UnknownTransitionException e) {
             e.printStackTrace();
         }
