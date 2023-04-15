@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="670.0" prefWidth="1088.0" style="-fx-background-color: #80aaff;" stylesheets="@../../../../java/com/example/soberdn/css/stylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.soberdn.javafx.controllers.FxmlCreatesSoberSecondScreen">
+<AnchorPane fx:id="anchorPane" prefHeight="670.0" prefWidth="1088.0" style="-fx-background-color: #80aaff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.soberdn.javafx.controllers.FxmlCreatesSoberSecondScreen">
    <children>
-      <HBox prefHeight="109.0" prefWidth="1099.0" stylesheets="/com/example/soberdn/css/stylesheet.css">
+      <HBox prefHeight="109.0" prefWidth="1099.0" >
          <children>
             <VBox fx:id="vbox1" alignment="CENTER" prefHeight="109.0" prefWidth="1128.0" style="-fx-background-color: #6699ff;">
                <children>
