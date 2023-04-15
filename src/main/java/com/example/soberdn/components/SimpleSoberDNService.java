@@ -31,7 +31,7 @@ public class SimpleSoberDNService implements SoberDNService {
   }
 
   @Override
-  public String createAddQRCode(boolean adding, int userID) throws IOException, WriterException {
+  public String createAddQRCode(int userID) throws IOException, WriterException {
     //wanna encrypt?
     String clearText = "addCoin-" + userID;
     ;
@@ -39,7 +39,7 @@ public class SimpleSoberDNService implements SoberDNService {
   }
 
   @Override
-  public String createPayQRCode(boolean adding, int userID, int amount)
+  public String createPayQRCode(int userID, int amount)
       throws IOException, WriterException {
     //wanna encrypt?
     String clearText = "payCoin-" + userID + "-" + amount;

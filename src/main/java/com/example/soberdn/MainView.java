@@ -56,6 +56,9 @@ public class MainView extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
+        singletonAttributeStore.setAttribute("stage", primaryStage);
+        singletonAttributeStore.setAttribute("service", new SimpleSoberDNService());
+
         addModule("Template");
         addModule("Sober");
         addModule("Bar");

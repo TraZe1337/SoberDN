@@ -5,9 +5,9 @@ import java.io.File;
 import java.io.IOException;
 
 public interface SoberDNService {
-  String createAddQRCode(boolean adding, int userID) throws IOException, WriterException;
+  String createAddQRCode(int userID) throws IOException, WriterException;
 
-  String createPayQRCode(boolean adding, int userID, int amount) throws IOException, WriterException;
+  String createPayQRCode(int userID, int amount) throws IOException, WriterException;
 
   void scanQRCode(File file, int barId);
   void addCoins(int userId, int barId);

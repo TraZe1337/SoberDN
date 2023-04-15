@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="anchorPane" prefHeight="670.0" prefWidth="1088.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.soberdn.javafx.Bar.BarScreen">
    <children>
       <VBox fx:id="vBox" prefHeight="673.0" prefWidth="201.0" style="-fx-background-color: #6699ff;">
@@ -21,7 +20,7 @@
                   <Font name="Hiragino Sans W2" size="20.0" />
                </font>
             </Button>
-            <Button fx:id="buttonQrScan" mnemonicParsing="false" onMouseEntered="#dark2" onMouseExited="#light2" prefHeight="70.0" prefWidth="219.0" style="-fx-background-color: #6699ff;" text="QR-Code Scan ">
+            <Button fx:id="buttonQrScan" mnemonicParsing="false" onAction="#qrScan" onMouseEntered="#dark2" onMouseExited="#light2" prefHeight="70.0" prefWidth="219.0" style="-fx-background-color: #6699ff;" text="QR-Code Scan ">
                <font>
                   <Font name="Hiragino Sans W2" size="20.0" />
                </font>
@@ -34,5 +33,10 @@
          </children>
       </VBox>
       <HBox fx:id="hBox" layoutX="201.0" prefHeight="92.0" prefWidth="888.0" style="-fx-background-color: #3377ff;" />
+      <HBox fx:id="fileChooser" layoutX="449.0" layoutY="234.0" prefHeight="205.0" prefWidth="391.0" visible="false">
+        <children>
+           <Button fx:id="openFileButton" mnemonicParsing="false" onAction="#chooseFile" onMouseEntered="#dark3" onMouseExited="#light3" prefHeight="70.0" prefWidth="218.0" style="-fx-background-color: #6699ff;" text="Choose a file..."/>
+        </children>
+      </HBox>
    </children>
 </AnchorPane>
