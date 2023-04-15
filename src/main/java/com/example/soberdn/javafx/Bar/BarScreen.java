@@ -1,6 +1,8 @@
 package com.example.soberdn.javafx.Bar;
 
 import com.example.soberdn.components.SimpleSoberDNService;
+import com.example.soberdn.javafx.controllers.SoberDNController;
+import com.example.soberdn.javafx.controllers.SoberDNScreenController;
 import com.example.soberdn.javafx.controllers.template.SingletonAttributeStore;
 import java.awt.Desktop;
 import java.io.File;
