@@ -2,6 +2,7 @@ package com.example.soberdn.components;
 
 import com.example.soberdn.MainView;
 import com.example.soberdn.api.SoberDNService;
+import com.example.soberdn.javafx.controllers.template.SingletonAttributeStore;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.WriterException;
 import java.io.File;
@@ -18,7 +19,7 @@ public class SimpleSoberDNService implements SoberDNService {
 
   public static void main(String[] args) {
     SimpleSoberDNService s = new SimpleSoberDNService();
-    s.createUser("Stefan");
+
     MainView mainView = new MainView();
 
     try {
@@ -28,6 +29,11 @@ public class SimpleSoberDNService implements SoberDNService {
     } catch (WriterException e) {
       throw new RuntimeException(e);
     }
+  }
+
+  public SimpleSoberDNService() {
+    createUser("Stefan", "12345");
+    createBar("NichtAnwendBar", "Passwort");
   }
 
   @Override
@@ -87,9 +93,10 @@ public class SimpleSoberDNService implements SoberDNService {
     }
   }
 
-  public User createUser(String name) {
-    User tmp = new User(name, this);
+  public User createUser(String name, String password) {
+    User tmp = new User(name, password, this);
     users.add(tmp);
+    SingletonAttributeStore.getReference().setAttribute("userId",tmp.getId());
     return tmp;
   }
 
@@ -106,9 +113,10 @@ public class SimpleSoberDNService implements SoberDNService {
     return null;
   }
 
-  public Bar createBar(String name) {
-    Bar tmp = new Bar(name, this);
+  public Bar createBar(String name, String password) {
+    Bar tmp = new Bar(name, password, this);
     bars.add(tmp);
+    SingletonAttributeStore.getReference().setAttribute("barId",tmp.getId());
     return tmp;
   }
 
@@ -123,5 +131,27 @@ public class SimpleSoberDNService implements SoberDNService {
       }
     }
     return null;
+  }
+
+  public boolean checkUserLogin(String username, String password) {
+    for (User u : users) {
+      if (u.getName().equals(username)) {
+        if (u.getPassword().equals(password)) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  public boolean checkBarLogin(String username, String password) {
+    for (Bar b : bars) {
+      if (b.getName().equals(username)) {
+        if (b.getPassword().equals(password)) {
+          return true;
+        }
+      }
+    }
+    return false;
   }
 }

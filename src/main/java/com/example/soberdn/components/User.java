@@ -8,12 +8,14 @@ public class User {
   private static final int AMOUNT_OF_COINS_PER_SOBER = 6;
   private static int idCounter = 0;
   private final String name;
+  private final String password;
   private final SimpleSoberDNService service;
   private int id;
   private int balance;
 
-  public User(String name, SimpleSoberDNService service) {
+  public User(String name, String password, SimpleSoberDNService service) {
     this.name = name;
+    this.password = password;
     this.service = service;
     id = idCounter++ * 1024;
     balance = 0;
@@ -45,5 +47,9 @@ public class User {
 
   public void removeCoins(int amount) {
     balance = -amount;
+  }
+
+  public String getPassword() {
+    return password;
   }
 }
