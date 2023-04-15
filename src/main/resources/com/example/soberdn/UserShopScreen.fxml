@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="672.0" prefWidth="1099.0" style="-fx-background-color: #ffffcc;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.soberdn.javafx.Bar.UserShopScreen">
+<AnchorPane prefHeight="672.0" prefWidth="1194.0" style="-fx-background-color: #ffffcc;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.soberdn.javafx.Bar.UserShopScreen">
    <children>
       <HBox layoutX="-4.0" layoutY="-3.0" prefHeight="96.0" prefWidth="217.0" style="-fx-background-color: #80bfff;">
          <children>
@@ -18,7 +24,99 @@
             </Label>
          </children>
       </HBox>
-      <HBox layoutX="213.0" layoutY="-2.0" prefHeight="94.0" prefWidth="1003.0" style="-fx-background-color: #99ccff;" />
-      <VBox layoutX="-4.0" layoutY="93.0" prefHeight="579.0" prefWidth="217.0" style="-fx-background-color: #99ccff;" />
+      <HBox layoutX="213.0" layoutY="-1.0" prefHeight="95.0" prefWidth="981.0" style="-fx-background-color: #99ccff;" />
+      <VBox layoutX="-2.0" layoutY="93.0" prefHeight="579.0" prefWidth="215.0" style="-fx-background-color: #99ccff;">
+         <children>
+            <Button fx:id="buttonBalance" mnemonicParsing="false" prefHeight="79.0" prefWidth="223.0" style="-fx-background-color: #99ccff;" text="Balance">
+               <font>
+                  <Font name="Hiragino Sans W2" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="buttonQrCode" mnemonicParsing="false" prefHeight="79.0" prefWidth="229.0" style="-fx-background-color: #99ccff;" text="QR-Code">
+               <font>
+                  <Font name="Hiragino Sans W2" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <GridPane layoutX="341.0" layoutY="135.0" prefHeight="418.0" prefWidth="643.0">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="550.0" minWidth="10.0" prefWidth="380.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="550.0" minWidth="10.0" prefWidth="380.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="550.0" minWidth="10.0" prefWidth="380.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+               <children>
+                  <ImageView fitHeight="142.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../9_7_forte_vg-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="18.0" prefWidth="94.0" text="Sparkling Water" />
+                  <Button fx:id="buttonWater" mnemonicParsing="false" text="1 Coin" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="178.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1">
+               <children>
+                  <ImageView fitHeight="123.0" fitWidth="186.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Download__1_-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="18.0" prefWidth="63.0" text="Sprite Can" />
+                  <Button fx:id="buttonSprite" mnemonicParsing="false" text="1 Coin" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="213.0" prefWidth="241.0" spacing="10.0" GridPane.columnIndex="2">
+               <children>
+                  <ImageView fitHeight="137.0" fitWidth="144.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../kisspng-beer-bottle-heineken-international-beer-hall-deduction-material-5a997953590143.3519654715200075073646-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="18.0" prefWidth="85.0" text="Heineken Can" />
+                  <Button fx:id="buttonHeineken" mnemonicParsing="false" text="2 Coins" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.rowIndex="1">
+               <children>
+                  <ImageView fitHeight="138.0" fitWidth="148.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../png-clipart-becks-beer-bottle-art-beck-s-bottle-food-beer-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="18.0" prefWidth="74.0" text="Becks Bottle" />
+                  <Button fx:id="buttonBecks" mnemonicParsing="false" text="2 Coins" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <ImageView fitHeight="137.0" fitWidth="174.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../kisspng-long-island-iced-tea-cocktail-rum-vodka-mai-tai-iced-tea-png-hd-5a79772eafba66.3885202115179098067198-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="18.0" prefWidth="118.0" text="Long Island Cocktail" />
+                  <Button fx:id="buttonCock1" mnemonicParsing="false" text="3 Coins" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="219.0" spacing="10.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <children>
+                  <ImageView fitHeight="197.0" fitWidth="215.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Download-removebg-preview.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="18.0" prefWidth="138.0" text="Tequila Sunrise Cocktail" />
+                  <Button fx:id="buttonCock2" mnemonicParsing="false" text="3 Coins" />
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
    </children>
 </AnchorPane>

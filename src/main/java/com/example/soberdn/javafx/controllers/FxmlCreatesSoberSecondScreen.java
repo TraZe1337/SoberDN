@@ -1,6 +1,7 @@
 package com.example.soberdn.javafx.controllers;
 
 
+import com.example.soberdn.javafx.Bar.UserShopScreen;
 import com.example.soberdn.javafx.controllers.template.SingletonAttributeStore;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -64,6 +65,8 @@ public class FxmlCreatesSoberSecondScreen implements Initializable {
     }
 
     public void onAction2() {
+        singletonAttributeStore.setAttribute(SoberDNController.SCREEN_CONTROLLER, screenController);
+        screenController.switchTo(FxmlCreatesSoberSecondScreen.SCREEN1, UserShopScreen.SCREEN);
     }
 
 }
