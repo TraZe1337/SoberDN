@@ -19,9 +19,9 @@ public class SoberDNScreenController {
         public SecondSober secondSober;
         public FxmlCreatesSoberSecondScreen fxmlCreatesSoberSecondScreen;
         public SoberQrCodeScreen soberQrCodeScreen;
-        public Node loginScreen;
+        public LoginScreen loginScreen;
 
-        public LoginScreen loginScreenContent;
+        public Node loginScreenContent;
 
         public Node soberScreenContent;
         public Node qrCodeScreen;
@@ -67,16 +67,16 @@ public class SoberDNScreenController {
             return qrCodeScreen;
         }
         public Node loginScreen(){
-            if(loginScreen == null){
+            if(loginScreenContent == null){
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/soberdn/LoginScreen.fxml"));
                 try{
-                    loginScreen = loader.load();
+                    loginScreenContent = loader.load();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                loginScreenContent = loader.getController();
+                loginScreen = loader.getController();
             }
-            return loginScreen;
+            return loginScreenContent;
         }
 
 

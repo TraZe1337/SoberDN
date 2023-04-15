@@ -1,5 +1,7 @@
 package com.example.soberdn.javafx.Bar;
 
+import com.example.soberdn.javafx.controllers.SoberDNController;
+import com.example.soberdn.javafx.controllers.SoberDNScreenController;
 import com.example.soberdn.javafx.controllers.template.SingletonAttributeStore;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,10 +18,10 @@ public class LoginScreen implements Initializable {
     private static final org.slf4j.Logger logger =
             org.slf4j.LoggerFactory.getLogger(LoginScreen.class);
     public static final String SCREEN = "login.screen";
-    public BarScreenController barScreenController;
 
     SingletonAttributeStore singletonAttributeStore = SingletonAttributeStore.getReference();
 
+    public SoberDNScreenController screenController;
 
     @FXML
     Button buttonMenu;
@@ -35,12 +37,13 @@ public class LoginScreen implements Initializable {
     RadioButton radio2;
     @FXML
     Button buttonContinue;
+    @FXML
+    AnchorPane anch;
     public LoginScreen(){
-        this.barScreenController =
-                (BarScreenController) singletonAttributeStore.getAttribute(LoginController.SCREEN_CONTROLLER);
-    }
+       }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        screenController =
+                (SoberDNScreenController) singletonAttributeStore.getAttribute(SoberDNController.SCREEN_CONTROLLER);
     }
 }
