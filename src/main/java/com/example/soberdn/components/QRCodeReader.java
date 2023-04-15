@@ -1,5 +1,6 @@
 package com.example.soberdn.components;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -24,7 +25,7 @@ public class QRCodeReader {
     String charset = "UTF-8";
     Map<EncodeHintType, ErrorCorrectionLevel> hintMap = new HashMap<EncodeHintType, ErrorCorrectionLevel>();
 //generates QR code with Low level(L) error correction capability
-    hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
+    hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
 
     BinaryBitmap binaryBitmap = new BinaryBitmap(new HybridBinarizer(
         new BufferedImageLuminanceSource(ImageIO.read(new FileInputStream(path)))));

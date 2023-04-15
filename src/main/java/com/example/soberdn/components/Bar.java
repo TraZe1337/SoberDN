@@ -1,5 +1,7 @@
 package com.example.soberdn.components;
 
+import java.io.File;
+
 public class Bar {
 
   private static int idCounter = 0;
@@ -15,8 +17,8 @@ public class Bar {
     scanned = 0;
   }
 
-  public void scanQRCode() {
-    service.scanQRCode(id);
+  public void uploadQRCode(File file) {
+    service.scanQRCode(file, id);
   }
 
   public void addScanned() {

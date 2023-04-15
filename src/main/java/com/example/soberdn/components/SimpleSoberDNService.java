@@ -4,6 +4,7 @@ import com.example.soberdn.MainView;
 import com.example.soberdn.api.SoberDNService;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.WriterException;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -47,11 +48,10 @@ public class SimpleSoberDNService implements SoberDNService {
   }
 
   @Override
-  public void scanQRCode(int barId) {
+  public void scanQRCode(File file, int barId) {
     //wanna decrypt?
     try {
-      String res = QRCodeReader.readQRcode(
-          "src/main/resources/com/example/soberdn/qrcodes/test.jpg");
+      String res = QRCodeReader.readQRcode(file.getPath());
       String[] parse = res.split("-");
       Bar bar = getBarById(barId);
       if (parse[0].equals("addCoin")) {
