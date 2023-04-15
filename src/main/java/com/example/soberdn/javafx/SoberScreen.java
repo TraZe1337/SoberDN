@@ -1,5 +1,6 @@
 package com.example.soberdn.javafx;
 
+import com.example.soberdn.javafx.controllers.FxmlCreatesSoberSecondScreen;
 import com.example.soberdn.javafx.controllers.SecondSober;
 import com.example.soberdn.javafx.controllers.SoberDNScreenController;
 import com.example.soberdn.javafx.controllers.template.FxmlPlusProgrammingScreen;
@@ -55,7 +56,7 @@ public class SoberScreen extends BorderPane {
 
         buttonToShop.setOnAction(event -> {
 
-            screenController.switchTo(SCREEN0, SecondSober.SCREEN1);
+            screenController.switchTo(SCREEN0, FxmlCreatesSoberSecondScreen.SCREEN1);
         });
 
     }

@@ -31,7 +31,7 @@ public class SoberDNController extends Controller implements Initializable {
         singletonAttributeStore.setAttribute(SCREEN_CONTROLLER, screenController);
         //singletonAttributeStore.setAttribute("calendar",new StudyCalendar("Test"));
         try {
-            screenController.switchTo(null, SoberScreen.SCREEN0);
+            screenController.switchTo(null, SecondSober.SCREEN1);
         } catch (UnknownTransitionException e) {
             e.printStackTrace();
         }
