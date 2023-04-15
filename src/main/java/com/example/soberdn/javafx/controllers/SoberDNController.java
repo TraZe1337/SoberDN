@@ -1,5 +1,6 @@
 package com.example.soberdn.javafx.controllers;
 
+import com.example.soberdn.javafx.Bar.LoginScreen;
 import com.example.soberdn.javafx.SoberScreen;
 import com.example.soberdn.javafx.controllers.template.SingletonAttributeStore;
 import com.example.soberdn.javafx.controllers.template.UnknownTransitionException;
@@ -18,6 +19,7 @@ public class SoberDNController extends Controller implements Initializable {
     @FXML
     AnchorPane soberAnchorPane;
     SoberDNScreenController screenController;
+    SingletonAttributeStore singletonAttributeStore = SingletonAttributeStore.getReference();
 
     public SoberDNController() {
         logger.debug("Sober Controller created.");
@@ -27,10 +29,9 @@ public class SoberDNController extends Controller implements Initializable {
     public void initialize(final URL location, final ResourceBundle resources) {
 
         screenController = new SoberDNScreenController(soberAnchorPane);
-        SingletonAttributeStore singletonAttributeStore = SingletonAttributeStore.getReference();
         singletonAttributeStore.setAttribute(SCREEN_CONTROLLER, screenController);
         try {
-            screenController.switchTo(null, FxmlCreatesSoberSecondScreen.SCREEN1);
+            screenController.switchTo(null, LoginScreen.SCREEN);
         } catch (UnknownTransitionException e) {
             e.printStackTrace();
         }

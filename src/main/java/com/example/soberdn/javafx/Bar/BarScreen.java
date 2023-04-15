@@ -25,7 +25,7 @@ public class BarScreen implements Initializable {
 
   public static final String SCREEN = "bar.screen";
 
-  public BarScreenController barScreenController;
+    public SoberDNScreenController screenController;
 
   @FXML
   Button buttonHistory;
@@ -52,10 +52,10 @@ public class BarScreen implements Initializable {
 
   SingletonAttributeStore singletonAttributeStore = SingletonAttributeStore.getReference();
 
-  public BarScreen() {
-    this.barScreenController =
-        (BarScreenController) singletonAttributeStore.getAttribute(BarController.SCREEN_CONTROLLER);
-  }
+    public BarScreen() {
+        this.screenController =
+                (SoberDNScreenController) singletonAttributeStore.getAttribute(SoberDNController.SCREEN_CONTROLLER);
+    }
 
 
   @Override
