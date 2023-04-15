@@ -1,5 +1,7 @@
 package com.example.soberdn.javafx.Bar;
 
+import com.example.soberdn.javafx.controllers.SoberDNController;
+import com.example.soberdn.javafx.controllers.SoberDNScreenController;
 import com.example.soberdn.javafx.controllers.template.SingletonAttributeStore;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,7 +22,7 @@ public class BarScreen implements Initializable {
 
     public static final String SCREEN = "bar.screen";
 
-    public BarScreenController barScreenController;
+    public SoberDNScreenController screenController;
 
     @FXML
     Button buttonHistory;
@@ -40,8 +42,8 @@ public class BarScreen implements Initializable {
     SingletonAttributeStore singletonAttributeStore = SingletonAttributeStore.getReference();
 
     public BarScreen() {
-        this.barScreenController =
-                (BarScreenController) singletonAttributeStore.getAttribute(BarController.SCREEN_CONTROLLER);
+        this.screenController =
+                (SoberDNScreenController) singletonAttributeStore.getAttribute(SoberDNController.SCREEN_CONTROLLER);
     }
 
 

@@ -31,7 +31,7 @@ public class SoberDNController extends Controller implements Initializable {
         screenController = new SoberDNScreenController(soberAnchorPane);
         singletonAttributeStore.setAttribute(SCREEN_CONTROLLER, screenController);
         try {
-            screenController.switchTo(null, FxmlCreatesSoberSecondScreen.SCREEN1);
+            screenController.switchTo(null, LoginScreen.SCREEN);
         } catch (UnknownTransitionException e) {
             e.printStackTrace();
         }
