@@ -1,5 +1,6 @@
 package com.example.soberdn.javafx.controllers;
 
+import com.example.soberdn.javafx.Bar.LoginScreen;
 import com.example.soberdn.javafx.SoberScreen;
 import com.example.soberdn.javafx.controllers.template.UnknownTransitionException;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +19,9 @@ public class SoberDNScreenController {
         public SecondSober secondSober;
         public FxmlCreatesSoberSecondScreen fxmlCreatesSoberSecondScreen;
         public SoberQrCodeScreen soberQrCodeScreen;
+        public Node loginScreen;
+
+        public LoginScreen loginScreenContent;
 
         public Node soberScreenContent;
         public Node qrCodeScreen;
@@ -62,6 +66,18 @@ public class SoberDNScreenController {
             }
             return qrCodeScreen;
         }
+        public Node loginScreen(){
+            if(loginScreen == null){
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/soberdn/LoginScreen.fxml"));
+                try{
+                    loginScreen = loader.load();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                loginScreenContent = loader.getController();
+            }
+            return loginScreen;
+        }
 
 
         public void switchTo(String fromScreen, String toScreen) throws UnknownTransitionException {
@@ -81,6 +97,10 @@ public class SoberDNScreenController {
                 if(toScreen.equals(SoberQrCodeScreen.SCREEN)){
                     anchorPane.getChildren().clear();
                     anchorPane.getChildren().add(addQrScreen());
+                }
+                if(toScreen.equals(LoginScreen.SCREEN)){
+                    anchorPane.getChildren().clear();
+                    anchorPane.getChildren().add(loginScreen());
                 }
             }
         }
