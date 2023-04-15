@@ -9,5 +9,5 @@ public interface SoberDNService {
   void scanQRCode(int barId);
   void addCoins(int userId, int barId);
 
-  void payDrink(int userId, int barId);
+  void payDrink(int userId, int barId, int amount);
 }

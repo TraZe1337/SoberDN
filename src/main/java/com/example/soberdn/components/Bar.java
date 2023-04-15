@@ -1,8 +1,5 @@
 package com.example.soberdn.components;
 
-import com.google.zxing.WriterException;
-import java.io.IOException;
-
 public class Bar {
 
   private static int idCounter = 0;
@@ -19,7 +16,7 @@ public class Bar {
   }
 
   public void scanQRCode() {
-    service.scanQRCode();
+    service.scanQRCode(id);
   }
 
   public void addScanned() {

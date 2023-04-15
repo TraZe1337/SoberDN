@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SimpleSoberDNService implements SoberDNService {
+
   private static final org.slf4j.Logger logger =
       org.slf4j.LoggerFactory.getLogger(SimpleSoberDNService.class);
 
@@ -17,13 +18,14 @@ public class SimpleSoberDNService implements SoberDNService {
   public static void main(String[] args) {
     SimpleSoberDNService s = new SimpleSoberDNService();
     try {
-      s.createQRCode(true,1234);
+      s.createQRCode(true, 1234);
     } catch (IOException e) {
       throw new RuntimeException(e);
     } catch (WriterException e) {
       throw new RuntimeException(e);
     }
   }
+
   @Override
   public String createQRCode(boolean adding, int userID) throws IOException, WriterException {
     //wanna encrypt?
@@ -40,11 +42,13 @@ public class SimpleSoberDNService implements SoberDNService {
   public void scanQRCode(int barId) {
     //wanna decrypt?
     try {
-      String res = QRCodeReader.readQRcode("src/main/resources/com/example/soberdn/qrcodes/test.jpg");
-      if (res.contains("addCoin")) {
-        addCoins(Integer.parseInt(Arrays.toString(res.split("-"))),barId);
-      } else if (res.contains("payCoin")) {
-        payDrink(Integer.parseInt(Arrays.toString(res.split("-"))), barId);
+      String res = QRCodeReader.readQRcode(
+          "src/main/resources/com/example/soberdn/qrcodes/test.jpg");
+      String[] parse = res.split("-");
+      if (parse[0].equals("addCoin")) {
+        addCoins(Integer.parseInt(parse[1]), barId);
+      } else if (parse[0].equals("payCoin")) {
+        payDrink(Integer.parseInt(parse[1]), barId, Integer.parseInt(parse[2]));
       } else {
         throw new IllegalArgumentException("Not a valid QR-Code");
       }
@@ -65,10 +69,10 @@ public class SimpleSoberDNService implements SoberDNService {
   }
 
   @Override
-  public void payDrink(int userId, int barId) {
+  public void payDrink(int userId, int barId, int amount) {
     User user = getUserById(userId);
     if (user != null) {
-      user.removeCoins();
+      user.removeCoins(amount);
     }
   }
 

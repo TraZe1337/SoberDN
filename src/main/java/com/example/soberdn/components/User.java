@@ -41,4 +41,8 @@ public class User {
   public String getName() {
     return name;
   }
+
+  public void removeCoins(int amount) {
+    balance =- amount;
+  }
 }
