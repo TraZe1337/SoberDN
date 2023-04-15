@@ -22,10 +22,10 @@ public class FxmlCreatesControllerScreen implements Initializable {
   @FXML
   private Button nextButton;
 
+  SingletonAttributeStore singletonAttributeStore = SingletonAttributeStore.getReference();
   private ScreenController screenController;
 
   public FxmlCreatesControllerScreen() {
-    SingletonAttributeStore singletonAttributeStore = SingletonAttributeStore.getReference();
     screenController =
         (ScreenController) singletonAttributeStore.getAttribute(TemplateController.SCREEN_CONTROLLER);
   }

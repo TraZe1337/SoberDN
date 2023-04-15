@@ -38,10 +38,6 @@ public class MainView extends Application {
      * @param args command line arguments
      */
     public static void main(String[] args) {
-
-        SimpleSoberDNService simpleSoberDNService = new SimpleSoberDNService();
-        simpleSoberDNService.
-        User user = new User("Stefan",simpleSoberDNService);
         System.out.println("java version: " + System.getProperty("java.version"));
         launch(args);
     }
@@ -62,6 +58,7 @@ public class MainView extends Application {
 
         addModule("Template");
         addModule("Sober");
+        addModule("Bar");
 
     }
 

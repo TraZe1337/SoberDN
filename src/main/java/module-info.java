@@ -7,8 +7,10 @@ module com.example.soberdn {
     requires java.desktop;
 
     exports com.example.soberdn.javafx.controllers to javafx.fxml;
+    exports com.example.soberdn.javafx.Bar to javafx.fxml;
     opens com.example.soberdn.javafx.controllers.template to javafx.fxml;
     opens com.example.soberdn.javafx.controllers to javafx.fxml;
     opens com.example.soberdn to javafx.fxml;
+    opens com.example.soberdn.javafx.Bar to javafx.fxml;
     exports com.example.soberdn;
 }

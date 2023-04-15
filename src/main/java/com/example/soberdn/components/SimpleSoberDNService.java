@@ -1,5 +1,6 @@
 package com.example.soberdn.components;
 
+import com.example.soberdn.MainView;
 import com.example.soberdn.api.SoberDNService;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.WriterException;
@@ -16,6 +17,9 @@ public class SimpleSoberDNService implements SoberDNService {
 
   public static void main(String[] args) {
     SimpleSoberDNService s = new SimpleSoberDNService();
+    s.createUser("Stefan");
+    MainView mainView = new MainView();
+
     try {
       s.createAddQRCode(true, 1234);
     } catch (IOException e) {
