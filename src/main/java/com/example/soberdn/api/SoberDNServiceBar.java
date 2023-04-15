@@ -3,7 +3,7 @@ package com.example.soberdn.api;
 public interface SoberDNServiceBar {
 
   void scanQRCode();
-  void addCoins();
+  void addCoins(String id);
 
-  void payDrink();
+  void payDrink(String id);
 }

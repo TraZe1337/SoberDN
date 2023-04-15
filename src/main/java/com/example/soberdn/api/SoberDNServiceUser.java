@@ -4,5 +4,5 @@ import com.google.zxing.WriterException;
 import java.io.IOException;
 
 public interface SoberDNServiceUser {
-  void createQRCode(String userID) throws IOException, WriterException;
+  String createQRCode(boolean adding, int userID) throws IOException, WriterException;
 }
