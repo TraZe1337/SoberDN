@@ -5,7 +5,6 @@ import com.google.zxing.NotFoundException;
 import com.google.zxing.WriterException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class SimpleSoberDNService implements SoberDNService {
 
@@ -18,7 +17,7 @@ public class SimpleSoberDNService implements SoberDNService {
   public static void main(String[] args) {
     SimpleSoberDNService s = new SimpleSoberDNService();
     try {
-      s.createQRCode(true, 1234);
+      s.createAddQRCode(true, 1234);
     } catch (IOException e) {
       throw new RuntimeException(e);
     } catch (WriterException e) {
@@ -27,14 +26,19 @@ public class SimpleSoberDNService implements SoberDNService {
   }
 
   @Override
-  public String createQRCode(boolean adding, int userID) throws IOException, WriterException {
+  public String createAddQRCode(boolean adding, int userID) throws IOException, WriterException {
     //wanna encrypt?
-    String clearText;
-    if (adding) {
-      clearText = "addCoin-" + userID;
-    } else {
-      clearText = "payCoin-" + userID;
-    }
+    String clearText = "addCoin-" + userID;
+    ;
+    return QRCodeGenerator.generateQRCode(clearText);
+  }
+
+  @Override
+  public String createPayQRCode(boolean adding, int userID, int amount)
+      throws IOException, WriterException {
+    //wanna encrypt?
+    String clearText = "payCoin-" + userID + "-" + amount;
+
     return QRCodeGenerator.generateQRCode(clearText);
   }
 
@@ -45,10 +49,13 @@ public class SimpleSoberDNService implements SoberDNService {
       String res = QRCodeReader.readQRcode(
           "src/main/resources/com/example/soberdn/qrcodes/test.jpg");
       String[] parse = res.split("-");
+      Bar bar = getBarById(barId);
       if (parse[0].equals("addCoin")) {
         addCoins(Integer.parseInt(parse[1]), barId);
+        bar.addScanned();
       } else if (parse[0].equals("payCoin")) {
         payDrink(Integer.parseInt(parse[1]), barId, Integer.parseInt(parse[2]));
+        bar.addScanned();
       } else {
         throw new IllegalArgumentException("Not a valid QR-Code");
       }

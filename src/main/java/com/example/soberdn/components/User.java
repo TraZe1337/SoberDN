@@ -20,11 +20,11 @@ public class User {
   }
 
   public String createAddQRCode() throws IOException, WriterException {
-    return service.createQRCode(true, getId());
+    return service.createAddQRCode(true, getId());
   }
 
-  public String createPayQRCode() throws IOException, WriterException {
-    return service.createQRCode(false, getId());
+  public String createPayQRCode(int amount) throws IOException, WriterException {
+    return service.createPayQRCode(false, getId(), amount);
   }
   public void addCoins() {
     balance += AMOUNT_OF_COINS_PER_SOBER;
