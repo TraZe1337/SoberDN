@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="670.0" prefWidth="1088.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.soberdn.javafx.Bar.LoginScreen">
+   <children>
+      <VBox fx:id="vBox" layoutX="-2.0" prefHeight="92.0" prefWidth="213.0" style="-fx-background-color: #6699ff;">
+         <children>
+            <Button fx:id="buttonMenu" mnemonicParsing="false" prefHeight="93.0" prefWidth="218.0" style="-fx-background-color: #1a66ff;" text="Login">
+               <font>
+                  <Font name="Hiragino Sans W2" size="40.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <HBox fx:id="hBox" layoutX="211.0" layoutY="-1.0" prefHeight="94.0" prefWidth="888.0" style="-fx-background-color: #3377ff;" />
+      <AnchorPane fx:id="blur" layoutX="479.0" layoutY="241.0" prefHeight="165.0" prefWidth="150.0" style="-fx-background-color: #3377ff;">
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+         <effect>
+            <BoxBlur iterations="2" />
+         </effect>
+      </AnchorPane>
+      <VBox layoutX="447.0" layoutY="215.0" prefHeight="273.0" prefWidth="214.0" spacing="20.0">
+         <children>
+            <RadioButton fx:id="radio1" mnemonicParsing="false" onAction="#click1" text="User" />
+            <RadioButton fx:id="radio2" mnemonicParsing="false" onAction="#click2" text="Bar" />
+            <Button fx:id="buttonContinue" mnemonicParsing="false" prefHeight="21.0" prefWidth="94.0" style="-fx-background-color: #3377ff;" text="Continue" />
+         </children>
+         <padding>
+            <Insets left="60.0" top="60.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>
