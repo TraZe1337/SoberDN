@@ -3,7 +3,9 @@ package com.example.soberdn.javafx.controllers;
 import com.example.soberdn.components.SimpleSoberDNService;
 import com.example.soberdn.javafx.controllers.template.SingletonAttributeStore;
 import com.google.zxing.WriterException;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -51,7 +53,7 @@ public class SoberQrCodeScreen implements Initializable {
         "service");
     int userId = (int) singletonAttributeStore.getAttribute("userId");
     try {
-      imageView.setImage(new Image(service.createAddQRCode(userId)));
+      imageView.setImage(new Image(getClass().getResourceAsStream(service.createAddQRCode(userId))));
     } catch (IOException e) {
       throw new RuntimeException(e);
     } catch (WriterException e) {

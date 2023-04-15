@@ -30,8 +30,7 @@ public class QRCodeGenerator {
     BitMatrix matrix = new MultiFormatWriter().encode(
         new String(textToQR.getBytes(charset), charset),
         BarcodeFormat.QR_CODE, w, h);
-    MatrixToImageWriter.writeToFile(matrix, "png",
-        new File(path));
-    return path;
+    MatrixToImageWriter.writeToFile(matrix, "png", new File(path));
+    return "/com/example/soberdn/qrcodes/" + textToQR + ".png";
   }
 }

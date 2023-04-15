@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+
 <AnchorPane fx:id="anchorPane" prefHeight="672.0" prefWidth="1099.0" style="-fx-background-color: #ffffcc;" stylesheets="@../../../../java/com/example/soberdn/css/stylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.soberdn.javafx.controllers.FxmlCreatesSoberSecondScreen">
    <children>
       <HBox layoutX="-5.0" layoutY="-7.0" prefHeight="101.0" prefWidth="222.0" style="-fx-background-color: #80bfff;" stylesheets="/com/example/soberdn/css/stylesheet.css" />
@@ -40,7 +41,7 @@
       </VBox>
       <VBox fx:id="vbox1" alignment="CENTER" layoutX="216.0" prefHeight="94.0" prefWidth="933.0" style="-fx-background-color: #99ccff;">
          <children>
-            <Label fx:id="label1" prefHeight="61.0" prefWidth="366.0" text="Hallo Stefan">
+            <Label fx:id="label1" prefHeight="61.0" prefWidth="366.0" text="Hallo {user}">
                <font>
                   <Font name="Hiragino Sans W2" size="60.0" />
                </font>

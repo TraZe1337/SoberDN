@@ -104,7 +104,7 @@ public class SimpleSoberDNService implements SoberDNService {
     users.remove(getUserById(id));
   }
 
-  private User getUserById(int id) {
+  public User getUserById(int id) {
     for (User u : users) {
       if (u.getId() == id) {
         return u;
@@ -124,7 +124,7 @@ public class SimpleSoberDNService implements SoberDNService {
     bars.remove(getBarById(id));
   }
 
-  private Bar getBarById(int id) {
+  public Bar getBarById(int id) {
     for (Bar b : bars) {
       if (b.getId() == id) {
         return b;
