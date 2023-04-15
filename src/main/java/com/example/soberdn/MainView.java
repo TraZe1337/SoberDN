@@ -1,7 +1,10 @@
 package com.example.soberdn;
 
+import com.example.soberdn.components.SimpleSoberDNService;
+import com.example.soberdn.components.User;
 import com.example.soberdn.javafx.controllers.Controller;
 import com.example.soberdn.javafx.controllers.RootController;
+import com.example.soberdn.javafx.controllers.template.SingletonAttributeStore;
 import com.example.soberdn.javafx.modules.Module;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +26,7 @@ public class MainView extends Application {
     private final int HEIGHT = 720;
     private RootController rootController;
     private Map<String, Module> moduleMap;
+    SingletonAttributeStore singletonAttributeStore = SingletonAttributeStore.getReference();
 
     public MainView() {
         moduleMap = new HashMap<>();
@@ -35,6 +39,9 @@ public class MainView extends Application {
      */
     public static void main(String[] args) {
 
+        SimpleSoberDNService simpleSoberDNService = new SimpleSoberDNService();
+        simpleSoberDNService.
+        User user = new User("Stefan",simpleSoberDNService);
         System.out.println("java version: " + System.getProperty("java.version"));
         launch(args);
     }

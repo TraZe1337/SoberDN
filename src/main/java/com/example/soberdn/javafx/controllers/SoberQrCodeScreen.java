@@ -50,4 +50,21 @@ public class SoberQrCodeScreen implements Initializable {
         screenController.switchTo(SoberQrCodeScreen.SCREEN,FxmlCreatesSoberSecondScreen.SCREEN1);
     }
 
+    public void doThis() {
+        buttonBalance.setStyle("-fx-background-color : #3366ff ;");
+    }
+
+    public void doThat() {
+        buttonBalance.setStyle("-fx-background-color : #6699ff");
+    }
+
+    public void doThis2() {
+        buttonShop.setStyle("-fx-background-color : #3366ff ;");
+    }
+
+    public void doThat2() {
+        buttonShop.setStyle("-fx-background-color : #6699ff");
+    }
+
+
 }

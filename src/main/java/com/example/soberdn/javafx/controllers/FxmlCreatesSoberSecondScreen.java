@@ -1,7 +1,6 @@
 package com.example.soberdn.javafx.controllers;
 
 
-import com.example.soberdn.javafx.controllers.template.ScreenController;
 import com.example.soberdn.javafx.controllers.template.SingletonAttributeStore;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -33,7 +32,7 @@ public class FxmlCreatesSoberSecondScreen implements Initializable {
     private SoberDNScreenController screenController;
     SingletonAttributeStore singletonAttributeStore = SingletonAttributeStore.getReference();
 
-    public void FxmlCreatesControllerScreen(){
+    public void FxmlCreatesControllerScreen() {
     }
 
     @Override
@@ -42,16 +41,26 @@ public class FxmlCreatesSoberSecondScreen implements Initializable {
                 (SoberDNScreenController) singletonAttributeStore.getAttribute(SoberDNController.SCREEN_CONTROLLER);
 
     }
+
     public void onAction1() {
         singletonAttributeStore.setAttribute(SoberDNController.SCREEN_CONTROLLER, screenController);
-        screenController.switchTo(FxmlCreatesSoberSecondScreen.SCREEN1,SoberQrCodeScreen.SCREEN);
+        screenController.switchTo(FxmlCreatesSoberSecondScreen.SCREEN1, SoberQrCodeScreen.SCREEN);
     }
 
-    public void doThis(){
+    public void doThis() {
         button2.setStyle("-fx-background-color : #3366ff ;");
     }
-    public void doThat(){
+
+    public void doThat() {
         button2.setStyle("-fx-background-color : #6699ff");
+    }
+
+    public void doThis2() {
+        button1.setStyle("-fx-background-color : #3366ff ;");
+    }
+
+    public void doThat2() {
+        button1.setStyle("-fx-background-color : #6699ff");
     }
 
     public void onAction2() {
