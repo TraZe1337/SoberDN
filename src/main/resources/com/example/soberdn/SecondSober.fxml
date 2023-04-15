@@ -7,25 +7,31 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="537.0" stylesheets="@../../../../java/com/example/soberdn/css/stylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.soberdn.javafx.controllers.SecondSober">
+<AnchorPane fx:id="anchorPane" prefHeight="670.0" prefWidth="1088.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.soberdn.javafx.controllers.FxmlCreatesSoberSecondScreen">
    <children>
-      <HBox prefHeight="100.0" prefWidth="600.0" stylesheets="@../../../../java/com/example/soberdn/css/stylesheet.css">
+      <HBox prefHeight="109.0" prefWidth="1087.0" stylesheets="@stylesheet.css">
          <children>
-            <VBox fx:id="vbox1" alignment="CENTER" prefHeight="100.0" prefWidth="652.0" style="-fx-background-color: #6699ff;" stylesheets="@../../../../java/com/example/soberdn/css/stylesheet.css">
+            <VBox fx:id="vbox1" alignment="CENTER" prefHeight="109.0" prefWidth="1089.0" style="-fx-background-color: #6699ff;">
                <children>
-                  <Label fx:id="label1" prefHeight="37.0" prefWidth="162.0" text="Hallo Stefan" textOverrun="CLIP">
+                  <Label fx:id="label1" prefHeight="61.0" prefWidth="366.0" text="Hallo Stefan" textOverrun="CLIP">
                      <font>
-                        <Font name="Hiragino Sans W2" size="26.0" />
+                        <Font name="Hiragino Sans W2" size="60.0" />
                      </font>
                   </Label>
                </children>
             </VBox>
          </children>
       </HBox>
-      <HBox fx:id="vbox2" layoutX="-3.0" layoutY="363.0" prefHeight="37.0" prefWidth="603.0" spacing="400.0" style="-fx-background-color: #6699ff;" stylesheets="@../../../../java/com/example/soberdn/css/stylesheet.css">
+      <HBox fx:id="vbox2" layoutX="-8.0" layoutY="554.0" prefHeight="120.0" prefWidth="1108.0" spacing="400.0" style="-fx-background-color: #6699ff;">
          <children>
-            <Button fx:id="button1" mnemonicParsing="false" onAction="#onAction1" prefHeight="36.0" prefWidth="118.0" style="-fx-background-color: #6699ff;" stylesheets="@../../../../java/com/example/soberdn/css/stylesheet.css" text="QR-Code" />
-            <Button fx:id="button2" mnemonicParsing="false" onAction="#onAction2" prefHeight="36.0" prefWidth="90.0" style="-fx-background-color: #6699ff;" stylesheets="@../../../../java/com/example/soberdn/css/stylesheet.css" text="Buy Drinks" />
+            <Button fx:id="button1" mnemonicParsing="false" onAction="#onAction1" prefHeight="129.0" prefWidth="372.0" style="-fx-background-color: #6699ff;" text="QR-Code">
+               <font>
+                  <Font size="46.0" />
+               </font></Button>
+            <Button fx:id="button2" mnemonicParsing="false" onAction="#onAction2" prefHeight="117.0" prefWidth="339.0" style="-fx-background-color: #6699ff;" text="Buy Drinks">
+               <font>
+                  <Font size="46.0" />
+               </font></Button>
          </children>
       </HBox>
    </children>

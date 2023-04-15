@@ -2,7 +2,11 @@ package com.example.soberdn.javafx.controllers;
 
 import com.example.soberdn.javafx.SoberScreen;
 import com.example.soberdn.javafx.controllers.template.UnknownTransitionException;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
+
+import java.io.IOException;
 
 public class SoberDNScreenController {
 
@@ -10,11 +14,14 @@ public class SoberDNScreenController {
         org.slf4j.LoggerFactory.getLogger(SoberDNScreenController.class);
 
         AnchorPane anchorPane;
-        private SoberScreen soberScreen;
-        private SecondSober secondSober;
+        public SoberScreen soberScreen;
+        public SecondSober secondSober;
+        public FxmlCreatesSoberSecondScreen fxmlCreatesSoberSecondScreen;
 
-        public SoberDNScreenController(final AnchorPane calendarAnchorPane) {
-            this.anchorPane = calendarAnchorPane;
+        public Node soberScreenContent;
+
+        public SoberDNScreenController(final AnchorPane anchorPane) {
+            this.anchorPane = anchorPane;
         }
 
         public SoberScreen getFirstScreen() {
@@ -29,20 +36,32 @@ public class SoberDNScreenController {
             }
             return secondSober;
         }
+        public Node getFxmlScreen(){
+            if (soberScreenContent == null) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/soberdn/SecondSober.fxml"));
+                try {
+                    soberScreenContent = loader.load();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                fxmlCreatesSoberSecondScreen = loader.getController();}
+            return soberScreenContent;
+        }
 
 
         public void switchTo(String fromScreen, String toScreen) throws UnknownTransitionException {
             logger.info("Switching from " + fromScreen + " to " + toScreen);
-            switch (toScreen) {
-                case SoberScreen.SCREEN0:
+                if(toScreen.equals(SoberScreen.SCREEN0)){
                     anchorPane.getChildren().clear();
                     anchorPane.getChildren().add(getFirstScreen());
-                    break;
-                case SecondSober.SCREEN1:
+                }
+                if(toScreen.equals(SecondSober.SCREEN1)) {
                     anchorPane.getChildren().clear();
                     anchorPane.getChildren().add(getSecondScreen());
-                default:
-                    throw new UnknownTransitionException("unknown screen: " + toScreen);
+                }
+                if(toScreen.equals(FxmlCreatesSoberSecondScreen.SCREEN1)){
+                    anchorPane.getChildren().clear();
+                    anchorPane.getChildren().add(getFxmlScreen());
+                }
             }
         }
-}

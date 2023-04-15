@@ -11,11 +11,10 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 
 public class SecondSober extends AnchorPane {
-
-    public static final String SCREEN1 = "secondSober.screen";
     private static final org.slf4j.Logger logger =
             org.slf4j.LoggerFactory.getLogger(SecondSober.class);
 
+    public static final String SCREEN1 = "secondSober.screen";
     private SoberDNScreenController screenController;
 
     @FXML
@@ -33,8 +32,7 @@ public class SecondSober extends AnchorPane {
 
     public SecondSober(final SoberDNScreenController soberDNScreenController) {
         this.screenController = soberDNScreenController;
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/soberdn/SecondSober.fxml"));
-        //loader.setRoot(this);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/soberdn/SecondSober.fxml"));//loader.setRoot(this);
         //loader.setController(this);
 
         label1 = new Label();
@@ -42,12 +40,13 @@ public class SecondSober extends AnchorPane {
         vbox1 = new VBox();
         button1 = new Button();
         button2 = new Button();
+        anchorPane = new AnchorPane();
+
         try {
             loader.load();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public void onAction1() {
