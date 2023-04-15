@@ -66,7 +66,7 @@ public class SoberDNScreenController {
     }
 
     public Node addQrScreen() {
-        if (qrCodeScreen == null) {
+       // if (qrCodeScreen == null) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/soberdn/SoberQrCodeScreen.fxml"));
             try {
                 qrCodeScreen = loader.load();
@@ -74,12 +74,12 @@ public class SoberDNScreenController {
                 e.printStackTrace();
             }
             soberQrCodeScreen = loader.getController();
-        }
+      //  }
         return qrCodeScreen;
     }
 
     private Node getBarScreen() {
-        if (barScreenContent == null) {
+       // if (barScreenContent == null) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/soberdn/BarScreen.fxml"));
             try {
                 barScreenContent = loader.load();
@@ -87,7 +87,7 @@ public class SoberDNScreenController {
                 e.printStackTrace();
             }
             barScreen = loader.getController();
-        }
+        //}
         return barScreenContent;
     }
 

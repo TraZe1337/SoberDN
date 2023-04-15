@@ -54,16 +54,20 @@ public class SoberQrCodeScreen implements Initializable {
                         SoberDNController.SCREEN_CONTROLLER);
         SimpleSoberDNService service = (SimpleSoberDNService) singletonAttributeStore.getAttribute(
                 "service");
+
+        int userId =  (int) singletonAttributeStore.getAttribute("userId");
+        int barId = (int) singletonAttributeStore.getAttribute("barId");
+
         try {
-            Image i = (Image) singletonAttributeStore.getAttribute("image");
-            imageView.setImage(i);
-            singletonAttributeStore.removeAttribute("image");
-            dothis = true;
-        } catch (Exception e) {
+           int f = (int) singletonAttributeStore.getAttribute("coin");
+            service.payDrink(userId,barId,f);
+            imageView.setImage(new Image(getClass().getResourceAsStream(service.createPayQRCode(userId,f))));
+           dothis = true;
+           singletonAttributeStore.removeAttribute("coin");
+        } catch (Exception e){
             e.printStackTrace();
         }
         if(!dothis) {
-            int userId = (int) singletonAttributeStore.getAttribute("userId");
             try {
                 imageView.setImage(new Image(getClass().getResourceAsStream(service.createAddQRCode(userId))));
             } catch (IOException e) {
@@ -75,6 +79,7 @@ public class SoberQrCodeScreen implements Initializable {
     }
 
     public void goBack() {
+        imageView.setImage(null);
         singletonAttributeStore.setAttribute(SoberDNController.SCREEN_CONTROLLER, screenController);
         screenController.switchTo(SoberQrCodeScreen.SCREEN, FxmlCreatesSoberSecondScreen.SCREEN1);
     }
@@ -96,6 +101,7 @@ public class SoberQrCodeScreen implements Initializable {
     }
 
     public void goToShop(){
+      imageView.setImage(null);
       singletonAttributeStore.setAttribute(SoberDNController.SCREEN_CONTROLLER, screenController);
       screenController.switchTo(SoberQrCodeScreen.SCREEN, UserShopScreen.SCREEN);
 

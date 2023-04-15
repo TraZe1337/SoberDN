@@ -69,26 +69,22 @@ public class UserShopScreen implements Initializable {
         screenController.switchTo(UserShopScreen.SCREEN, SoberQrCodeScreen.SCREEN);
     }
     public void buttonOneCoin(){
-        service.payDrink(userId,barId,1);
-        SimpleSoberDNService service = (SimpleSoberDNService) singletonAttributeStore.getAttribute(
-                "service");
-        int userId = (int) singletonAttributeStore.getAttribute("userId");
-        try {
-           Image i = new Image(getClass().getResourceAsStream(service.createPayQRCode(userId,1)));
-           singletonAttributeStore.setAttribute("image",i);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (WriterException e) {
-            throw new RuntimeException(e);
-        }
+        int i = 1;
+        singletonAttributeStore.setAttribute("coin",i);
         singletonAttributeStore.setAttribute(SoberDNController.SCREEN_CONTROLLER, screenController);
         screenController.switchTo(UserShopScreen.SCREEN, SoberQrCodeScreen.SCREEN);
     }
     public void buttonTwoCoin(){
-
+        int i = 2;
+        singletonAttributeStore.setAttribute("coin",i);
+        singletonAttributeStore.setAttribute(SoberDNController.SCREEN_CONTROLLER, screenController);
+        screenController.switchTo(UserShopScreen.SCREEN, SoberQrCodeScreen.SCREEN);
     }
     public void buttonThreeCoin(){
-
+        int i = 3;
+        singletonAttributeStore.setAttribute("coin",i);
+        singletonAttributeStore.setAttribute(SoberDNController.SCREEN_CONTROLLER, screenController);
+        screenController.switchTo(UserShopScreen.SCREEN, SoberQrCodeScreen.SCREEN);
     }
     public void dark1(){
         buttonBalance.setStyle("-fx-background-color : #80bfff ;");
