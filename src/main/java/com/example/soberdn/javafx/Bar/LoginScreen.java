@@ -82,9 +82,7 @@ public class LoginScreen implements Initializable {
                 singletonAttributeStore.setAttribute(SoberDNController.SCREEN_CONTROLLER, screenController);
                 screenController.switchTo(LoginScreen.SCREEN, FxmlCreatesSoberSecondScreen.SCREEN1 );
             }
-
-        }
-        else if(radio2.isSelected()){
+        } else if(radio2.isSelected()){
             if (service.checkBarLogin(textUsername.getText(), textPassword.getText())) {
                 singletonAttributeStore.setAttribute(SoberDNController.SCREEN_CONTROLLER, screenController);
                 screenController.switchTo(LoginScreen.SCREEN, BarScreen.SCREEN );
