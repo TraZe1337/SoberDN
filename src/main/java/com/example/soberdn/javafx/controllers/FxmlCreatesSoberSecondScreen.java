@@ -17,22 +17,6 @@ import java.util.ResourceBundle;
 
 public class FxmlCreatesSoberSecondScreen implements Initializable {
 
-<<<<<<< HEAD
-  @FXML
-  Button button1;
-  @FXML
-  Button button2;
-  @FXML
-  Label label1;
-  @FXML
-  VBox vbox1;
-  @FXML
-  HBox vbox2;
-  @FXML
-  AnchorPane anchorPane;
-  @FXML
-  Label coinCounter;
-=======
     @FXML
     Button button1;
     @FXML
@@ -45,7 +29,6 @@ public class FxmlCreatesSoberSecondScreen implements Initializable {
     AnchorPane anchorPane;
     @FXML
     Label balanceLabel;
->>>>>>> da2361cedc5a50d3601d4a503bb9480b93812e7d
 
     public static final String SCREEN1 = "secondSober.screen";
     private SoberDNScreenController screenController;
@@ -55,18 +38,6 @@ public class FxmlCreatesSoberSecondScreen implements Initializable {
     public void FxmlCreatesControllerScreen() {
     }
 
-<<<<<<< HEAD
-  @Override
-  public void initialize(URL location, ResourceBundle resources) {
-    screenController =
-        (SoberDNScreenController) singletonAttributeStore.getAttribute(
-            SoberDNController.SCREEN_CONTROLLER);
-    service = (SimpleSoberDNService) singletonAttributeStore.getAttribute("service");
-    int userId = (int) singletonAttributeStore.getAttribute("userId");
-    label1.setText("Hallo " + service.getUserById(userId).getName());
-    coinCounter.setText("" + service.getUserById(userId).getBalance() + " SCs");
-  }
-=======
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         screenController =
@@ -75,14 +46,17 @@ public class FxmlCreatesSoberSecondScreen implements Initializable {
         service = (SimpleSoberDNService) singletonAttributeStore.getAttribute("service");
         int userId = (int) singletonAttributeStore.getAttribute("userId");
         label1.setText("Hallo " + service.getUserById(userId).getName());
+<<<<<<< HEAD
         balanceLabel.setText(" " + service.getUserById(userId).getBalance() + " Sc's");
+=======
+        balanceLabel.setText(" " + service.getUserById(userId).getBalance() + "SCs");
+>>>>>>> 0c213cefceea4633b9d8de423b4d0ef861664aed
     }
 
     public void onAction1() {
         singletonAttributeStore.setAttribute(SoberDNController.SCREEN_CONTROLLER, screenController);
         screenController.switchTo(FxmlCreatesSoberSecondScreen.SCREEN1, SoberQrCodeScreen.SCREEN);
     }
->>>>>>> da2361cedc5a50d3601d4a503bb9480b93812e7d
 
     public void doThis() {
         button2.setStyle("-fx-background-color : #80bfff ;");
