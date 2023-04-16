@@ -15,4 +15,6 @@ public interface SoberDNService {
   void addCoins(int userId, int barId);
 
   void payDrink(int userId, int barId, int amount);
+
+  void removeCoins(int userId, int amount);
 }

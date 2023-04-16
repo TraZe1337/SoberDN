@@ -9,8 +9,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<<<<<<< HEAD
 
 <AnchorPane fx:id="anchorPane" prefHeight="672.0" prefWidth="1099.0" style="-fx-background-color: #ffffcc;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.soberdn.javafx.controllers.FxmlCreatesSoberSecondScreen">
+=======
+<AnchorPane fx:id="anchorPane" prefHeight="672.0" prefWidth="1099.0" style="-fx-background-color: #ffffcc;" stylesheets="@../../../../java/com/example/soberdn/css/stylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.soberdn.javafx.controllers.FxmlCreatesSoberSecondScreen">
+>>>>>>> da2361cedc5a50d3601d4a503bb9480b93812e7d
    <children>
       <HBox layoutX="-5.0" layoutY="-7.0" prefHeight="101.0" prefWidth="222.0" style="-fx-background-color: #80bfff;" />
       <VBox layoutX="572.0" layoutY="166.0" prefHeight="377.0" prefWidth="215.0" spacing="30.0">
@@ -20,7 +24,11 @@
                   <Image url="@../../../coin-royalty-free-stock-photography-illustration-gold-coin.png" />
                </image>
             </ImageView>
+<<<<<<< HEAD
             <Label fx:id="coinCounter" alignment="CENTER" prefHeight="47.0" prefWidth="215.0" text="0">
+=======
+            <Label fx:id="balanceLabel" alignment="CENTER" prefHeight="47.0" prefWidth="215.0" text="0">
+>>>>>>> da2361cedc5a50d3601d4a503bb9480b93812e7d
                <font>
                   <Font name="Hiragino Sans W2" size="46.0" />
                </font>

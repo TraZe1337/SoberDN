@@ -16,7 +16,6 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class SoberQrCodeScreen implements Initializable {
@@ -37,12 +36,17 @@ public class SoberQrCodeScreen implements Initializable {
     HBox hBox;
     @FXML
     HBox hBox1;
+    @FXML
+    Button buttonAddCoins;
 
     boolean dothis = false;
 
     public static final String SCREEN = "QRScreen.screen";
     SingletonAttributeStore singletonAttributeStore = SingletonAttributeStore.getReference();
     private SoberDNScreenController screenController;
+    private SimpleSoberDNService service;
+    private int userId;
+    private int barId;
 
     public void SoberQrCodeScreen() {
     }
@@ -52,22 +56,21 @@ public class SoberQrCodeScreen implements Initializable {
         screenController =
                 (SoberDNScreenController) singletonAttributeStore.getAttribute(
                         SoberDNController.SCREEN_CONTROLLER);
-        SimpleSoberDNService service = (SimpleSoberDNService) singletonAttributeStore.getAttribute(
-                "service");
+        service = (SimpleSoberDNService) singletonAttributeStore.getAttribute("service");
 
-        int userId =  (int) singletonAttributeStore.getAttribute("userId");
-        int barId = (int) singletonAttributeStore.getAttribute("barId");
+        userId = (int) singletonAttributeStore.getAttribute("userId");
+        barId = (int) singletonAttributeStore.getAttribute("barId");
 
         try {
-           int f = (int) singletonAttributeStore.getAttribute("coin");
-            service.payDrink(userId,barId,f);
-            imageView.setImage(new Image(getClass().getResourceAsStream(service.createPayQRCode(userId,f))));
-           dothis = true;
-           singletonAttributeStore.removeAttribute("coin");
-        } catch (Exception e){
+            int f = (int) singletonAttributeStore.getAttribute("coin");
+            service.payDrink(userId, barId, f);
+            imageView.setImage(new Image(getClass().getResourceAsStream(service.createPayQRCode(userId, f))));
+            dothis = true;
+            singletonAttributeStore.removeAttribute("coin");
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        if(!dothis) {
+        if (!dothis) {
             try {
                 imageView.setImage(new Image(getClass().getResourceAsStream(service.createAddQRCode(userId))));
             } catch (IOException e) {
@@ -100,12 +103,19 @@ public class SoberQrCodeScreen implements Initializable {
         buttonShop.setStyle("-fx-background-color :  #99ccff");
     }
 
-    public void goToShop(){
-      imageView.setImage(null);
-      singletonAttributeStore.setAttribute(SoberDNController.SCREEN_CONTROLLER, screenController);
-      screenController.switchTo(SoberQrCodeScreen.SCREEN, UserShopScreen.SCREEN);
-
+    public void goToShop() {
+        imageView.setImage(null);
+        singletonAttributeStore.setAttribute(SoberDNController.SCREEN_CONTROLLER, screenController);
+        screenController.switchTo(SoberQrCodeScreen.SCREEN, UserShopScreen.SCREEN);
     }
 
+    public void addCoins() {
+        try {
+            service.addCoins(userId, 6);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 
 }

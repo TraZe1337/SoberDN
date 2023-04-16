@@ -70,18 +70,21 @@ public class UserShopScreen implements Initializable {
     }
     public void buttonOneCoin(){
         int i = 1;
+        service.getUserById(userId).removeCoins(1);
         singletonAttributeStore.setAttribute("coin",i);
         singletonAttributeStore.setAttribute(SoberDNController.SCREEN_CONTROLLER, screenController);
         screenController.switchTo(UserShopScreen.SCREEN, SoberQrCodeScreen.SCREEN);
     }
     public void buttonTwoCoin(){
         int i = 2;
+        service.getUserById(userId).removeCoins(2);
         singletonAttributeStore.setAttribute("coin",i);
         singletonAttributeStore.setAttribute(SoberDNController.SCREEN_CONTROLLER, screenController);
         screenController.switchTo(UserShopScreen.SCREEN, SoberQrCodeScreen.SCREEN);
     }
     public void buttonThreeCoin(){
         int i = 3;
+        service.getUserById(userId).removeCoins(3);
         singletonAttributeStore.setAttribute("coin",i);
         singletonAttributeStore.setAttribute(SoberDNController.SCREEN_CONTROLLER, screenController);
         screenController.switchTo(UserShopScreen.SCREEN, SoberQrCodeScreen.SCREEN);
