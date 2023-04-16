@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="anchorPane" prefHeight="672.0" prefWidth="1099.0" style="-fx-background-color: #ffffcc;" stylesheets="@../../../../java/com/example/soberdn/css/stylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.soberdn.javafx.controllers.FxmlCreatesSoberSecondScreen">
    <children>
       <HBox layoutX="-5.0" layoutY="-7.0" prefHeight="101.0" prefWidth="222.0" style="-fx-background-color: #80bfff;" stylesheets="/com/example/soberdn/css/stylesheet.css" />
@@ -20,7 +19,7 @@
                   <Image url="@../../../coin-royalty-free-stock-photography-illustration-gold-coin.png" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" prefHeight="47.0" prefWidth="215.0" text="0">
+            <Label fx:id="balanceLabel" alignment="CENTER" prefHeight="47.0" prefWidth="215.0" text="0">
                <font>
                   <Font name="Hiragino Sans W2" size="46.0" />
                </font>

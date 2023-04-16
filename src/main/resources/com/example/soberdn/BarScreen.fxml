@@ -35,7 +35,7 @@
     <HBox fx:id="hBox" layoutX="201.0" prefHeight="92.0" prefWidth="888.0" style="-fx-background-color: #99ccff;" />
     <HBox fx:id="fileChooser" layoutX="449.0" layoutY="234.0" prefHeight="205.0" prefWidth="391.0" visible="false">
       <children>
-        <Button fx:id="openFileButton" mnemonicParsing="false" onAction="#chooseFile" onMouseEntered="#dark3" onMouseExited="#light3" prefHeight="70.0" prefWidth="218.0" style="-fx-background-color: #6699ff;" text="Choose a file..." />
+        <Button fx:id="openFileButton" mnemonicParsing="false" onAction="#chooseFile" prefHeight="70.0" prefWidth="218.0" style="-fx-background-color: #6699ff;" text="Choose a file..." />
       </children>
     </HBox>
   </children>

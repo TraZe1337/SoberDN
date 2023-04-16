@@ -93,6 +93,14 @@ public class SimpleSoberDNService implements SoberDNService {
     }
   }
 
+  @Override
+  public void removeCoins(int userId, int amount) {
+    User user = getUserById(userId);
+    if(user != null){
+      user.removeCoins(amount);
+    }
+  }
+
   public User createUser(String name, String password) {
     User tmp = new User(name, password, this);
     users.add(tmp);

@@ -46,14 +46,14 @@ public class SoberDNScreenController {
     }
 
     public SecondSober getSecondScreen() {
-        if (secondSober == null) {
-            secondSober = new SecondSober(this);
-        }
-        return secondSober;
+        //if (secondSober == null) {
+        //    secondSober = new SecondSober(this);
+        //}
+        return new SecondSober(this);
     }
 
     public Node getFxmlScreen() {
-        if (soberScreenContent == null) {
+       // if (soberScreenContent == null) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/soberdn/SecondSober.fxml"));
             try {
                 soberScreenContent = loader.load();
@@ -61,7 +61,7 @@ public class SoberDNScreenController {
                 e.printStackTrace();
             }
             fxmlCreatesSoberSecondScreen = loader.getController();
-        }
+       // }
         return soberScreenContent;
     }
 
@@ -105,7 +105,7 @@ public class SoberDNScreenController {
     }
 
     public Node shopScreen() {
-        if (shopScreenContent == null) {
+        //if (shopScreenContent == null) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/soberdn/UserShopScreen.fxml"));
             try {
                 shopScreenContent = loader.load();
@@ -113,7 +113,7 @@ public class SoberDNScreenController {
                 e.printStackTrace();
             }
             userShopScreen = loader.getController();
-        }
+        //}
         return shopScreenContent;
     }
 
