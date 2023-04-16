@@ -46,7 +46,7 @@ public class FxmlCreatesSoberSecondScreen implements Initializable {
         service = (SimpleSoberDNService) singletonAttributeStore.getAttribute("service");
         int userId = (int) singletonAttributeStore.getAttribute("userId");
         label1.setText("Hallo " + service.getUserById(userId).getName());
-        balanceLabel.setText(" " + service.getUserById(userId).getBalance());
+        balanceLabel.setText(" " + service.getUserById(userId).getBalance() + " Sc's");
     }
 
     public void onAction1() {
